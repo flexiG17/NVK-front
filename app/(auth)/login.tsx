@@ -1,12 +1,13 @@
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
+import { ROUTES } from '@/shared/routes';
 
 export default function LoginScreen() {
   const router = useRouter();
 
   const handleLogin = () => {
     //TODO: Реализовать логику аутентификации 
-    router.replace('/(tabs)');
+    router.replace(ROUTES.tabs.root);
   };
 
   return (

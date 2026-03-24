@@ -1,12 +1,13 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
+import { ROUTES } from '@/shared/routes';
 
 export default function ProfileScreen() {
   const router = useRouter();
 
   const handleLogout = () => {
     // TODO: Реализовать логику выхода из аккаунта
-    router.replace('/(auth)/login');
+    router.replace(ROUTES.auth.login);
   };
 
   return (

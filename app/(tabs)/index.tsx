@@ -1,12 +1,13 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { ROUTES } from '@/shared/routes';
 
 export default function HomeScreen() {
   const router = useRouter();
 
   const handleGoToLeaderboard = () => {
-    router.push('/leaderboard');
+    router.push(ROUTES.leaderboard);
   };
 
   return (
