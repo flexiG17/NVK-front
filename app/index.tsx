@@ -1,13 +1,13 @@
+import { makeStyles, useTheme } from "@/lib/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { Image as ExpoImage } from "expo-image";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
-import { Image as ExpoImage } from "expo-image";
 import {
   KeyboardAvoidingView,
-  Pressable,
   Platform,
+  Pressable,
   ScrollView,
-  StyleSheet,
   Text,
   TextInput,
   View,
@@ -15,17 +15,23 @@ import {
 
 export default function Index() {
   const router = useRouter();
+  const { theme } = useTheme();
+  const styles = useStyles();
+
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <View style={styles.root}>
-      <ExpoImage
-        source={require("../src/assets/images/loginscreen.svg")}
-        contentFit="cover"
-        style={styles.backgroundImage}
-      />
+      {theme.dark && (
+        <ExpoImage
+          source={require("../src/assets/images/loginscreen.svg")}
+          contentFit="cover"
+          style={styles.backgroundImage}
+        />
+      )}
+
       <KeyboardAvoidingView
         style={styles.screen}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
@@ -35,8 +41,8 @@ export default function Index() {
           keyboardShouldPersistTaps="handled"
         >
           <View style={styles.titleWrap}>
-            <Text style={styles.titleLine1}>Добро пожаловать</Text>
-            <Text style={styles.titleLine2}>в НВК LIFE!</Text>
+            <Text style={styles.titleLine}>Добро пожаловать</Text>
+            <Text style={styles.titleLine}>в НВК LIFE!</Text>
           </View>
 
           <View style={styles.formWrap}>
@@ -44,28 +50,25 @@ export default function Index() {
             <TextInput
               value={login}
               onChangeText={setLogin}
-              placeholder=""
-              placeholderTextColor="rgba(255,255,255,0.7)"
               keyboardType="email-address"
               autoCapitalize="none"
               autoCorrect={false}
               style={styles.input}
-              selectionColor="#fff"
+              placeholderTextColor={theme.colors.placeholder}
+              selectionColor={theme.colors.inputText}
             />
 
-            <Text style={[styles.label, { marginTop: 18 }]}>Пароль *</Text>
-
+            <Text style={[styles.label, styles.labelGap]}>Пароль *</Text>
             <View style={styles.passwordContainer}>
               <TextInput
                 value={password}
                 onChangeText={setPassword}
-                placeholder=""
-                placeholderTextColor="rgba(255,255,255,0.7)"
                 secureTextEntry={!showPassword}
                 autoCapitalize="none"
                 autoCorrect={false}
                 style={styles.passwordInput}
-                selectionColor="#fff"
+                placeholderTextColor={theme.colors.placeholder}
+                selectionColor={theme.colors.inputText}
               />
               <Pressable
                 onPress={() => setShowPassword((v) => !v)}
@@ -75,23 +78,30 @@ export default function Index() {
                 <Ionicons
                   name={showPassword ? "eye-off-outline" : "eye-outline"}
                   size={20}
-                  color="#fff"
+                  color={theme.colors.icon}
                 />
               </Pressable>
             </View>
 
             <Pressable
-              style={styles.loginButton}
+              style={({ pressed }) => [
+                styles.loginButton,
+                pressed && styles.loginButtonPressed,
+              ]}
               onPress={() => router.push("/home")}
             >
               <Text style={styles.loginButtonText}>Войти</Text>
             </Pressable>
 
             <View style={styles.links}>
-              <Text style={styles.link}>Войти как гость</Text>
-              <Text style={[styles.link, { marginTop: 10 }]}>
-                Восстановление пароля
-              </Text>
+              <Pressable>
+                <Text style={styles.link}>Войти как гость</Text>
+              </Pressable>
+              <Pressable>
+                <Text style={[styles.link, styles.linkGap]}>
+                  Восстановление пароля
+                </Text>
+              </Pressable>
             </View>
           </View>
         </ScrollView>
@@ -100,13 +110,18 @@ export default function Index() {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((t) => ({
   root: {
     flex: 1,
     width: "100%",
+    backgroundColor: t.colors.background,
   },
   backgroundImage: {
-    ...StyleSheet.absoluteFillObject,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   screen: {
     flex: 1,
@@ -121,15 +136,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 42,
   },
-  titleLine1: {
-    color: "#fff",
-    fontSize: 30,
-    fontWeight: "700",
-    textAlign: "center",
-  },
-  titleLine2: {
-    color: "#fff",
-    fontSize: 30,
+  titleLine: {
+    color: t.colors.textPrimary,
+    fontSize: t.fonts.sizes.title,
     fontWeight: "700",
     textAlign: "center",
     marginTop: 6,
@@ -140,36 +149,39 @@ const styles = StyleSheet.create({
   },
   label: {
     width: "100%",
-    color: "#fff",
-    fontSize: 14,
+    color: t.colors.textPrimary,
+    fontSize: t.fonts.sizes.sm,
     marginBottom: 10,
+  },
+  labelGap: {
+    marginTop: 18,
   },
   input: {
     width: "100%",
     height: 52,
     borderWidth: 2,
-    borderColor: "rgba(255,255,255,0.95)",
-    borderRadius: 12,
+    borderColor: t.colors.border,
+    borderRadius: t.borderRadius.md,
     paddingHorizontal: 16,
-    color: "#fff",
-    backgroundColor: "rgba(0,0,0,0.08)",
+    color: t.colors.inputText,
+    backgroundColor: t.colors.inputBackground,
   },
   passwordContainer: {
     width: "100%",
     height: 52,
     borderWidth: 2,
-    borderColor: "rgba(255,255,255,0.95)",
-    borderRadius: 12,
+    borderColor: t.colors.border,
+    borderRadius: t.borderRadius.md,
     flexDirection: "row",
     alignItems: "center",
     paddingLeft: 16,
     paddingRight: 10,
-    backgroundColor: "rgba(0,0,0,0.08)",
+    backgroundColor: t.colors.inputBackground,
   },
   passwordInput: {
     flex: 1,
     height: "100%",
-    color: "#fff",
+    color: t.colors.inputText,
     paddingVertical: 0,
   },
   eyeButton: {
@@ -181,15 +193,18 @@ const styles = StyleSheet.create({
   loginButton: {
     width: "100%",
     height: 52,
-    borderRadius: 14,
-    backgroundColor: "#3A3B82",
+    borderRadius: t.borderRadius.lg,
+    backgroundColor: t.colors.accent,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 22,
   },
+  loginButtonPressed: {
+    backgroundColor: t.colors.accentPressed,
+  },
   loginButtonText: {
-    color: "#fff",
-    fontSize: 16,
+    color: t.colors.textOnAccent,
+    fontSize: t.fonts.sizes.md,
     fontWeight: "700",
   },
   links: {
@@ -198,8 +213,11 @@ const styles = StyleSheet.create({
     marginTop: 18,
   },
   link: {
-    color: "rgba(255,255,255,0.95)",
-    fontSize: 14,
+    color: t.colors.link,
+    fontSize: t.fonts.sizes.sm,
     fontWeight: "500",
   },
-});
+  linkGap: {
+    marginTop: 10,
+  },
+}));
