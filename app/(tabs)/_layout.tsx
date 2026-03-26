@@ -1,8 +1,10 @@
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { AuthGuard } from '@/shared/AuthGuard';
 
 export default function TabsLayout() {
   return (
+    <AuthGuard>
     <Tabs screenOptions={{ tabBarActiveTintColor: '#007AFF' }}>
       <Tabs.Screen 
         name="index" 
@@ -25,5 +27,6 @@ export default function TabsLayout() {
         options={{ title: 'Профиль', tabBarIcon: ({ color }) => <Ionicons name="person" size={24} color={color} /> }} 
       />
     </Tabs>
+    </AuthGuard>
   );
 }
