@@ -7,7 +7,7 @@ import {
   ScrollView,
   SafeAreaView,
 } from 'react-native';
-import { useLocalization } from '../hooks/useLocalization';
+import { useLocalization } from './useLocalization';
 
 const DemoScreen: React.FC = () => {
   const { t, changeLanguage, currentLanguage, languages } = useLocalization();
