@@ -1,10 +1,22 @@
 import { useTheme } from "@/lib/theme";
-import { Stack } from "expo-router";
+import { checkAuth } from "@/shared/lib/checkAuth";
+import { router, Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useEffect } from "react";
 import { ThemeProvider } from "./providers";
 
 function InnerLayout() {
   const { theme } = useTheme();
+
+  useEffect(() => {
+    const verifyAuth = async () => {
+      const result = await checkAuth();
+      if (result) {
+        router.replace("/(tabs)");
+      }
+    };
+    verifyAuth();
+  }, []);
 
   return (
     <>
@@ -14,7 +26,14 @@ function InnerLayout() {
           headerShown: false,
           contentStyle: { backgroundColor: theme.colors.background },
         }}
-      />
+      >
+        <Stack.Screen name="(auth)/login" />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="leaderboard"
+          options={{ headerShown: true, title: "Лидерборд" }}
+        />
+      </Stack>
     </>
   );
 }
