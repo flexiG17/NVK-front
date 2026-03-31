@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { router } from 'expo-router';
-import { checkAuth } from '@/shared/checkAuth';
+import { useEffect, useState } from "react";
+import { router } from "expo-router";
+import { checkAuth } from "@/shared/lib/checkAuth";
 
 interface AuthGuardProps {
   children: React.ReactNode;
@@ -15,14 +15,13 @@ export const AuthGuard = ({ children }: AuthGuardProps) => {
       const result = await checkAuth();
       setIsAuth(result);
       if (!result) {
-        router.replace('/(auth)/login');
+        router.replace("/(auth)/login");
       }
     };
 
     verifyAuth();
-
   }, []);
 
-  if (isAuth === null || !isAuth) return null; 
+  if (isAuth === null || !isAuth) return null;
   return <>{children}</>;
 };

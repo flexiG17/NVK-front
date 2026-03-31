@@ -1,6 +1,5 @@
 import { makeStyles, useTheme } from "@/lib/theme";
 import { Ionicons } from "@expo/vector-icons";
-import { Image as ExpoImage } from "expo-image";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
@@ -24,13 +23,13 @@ export default function Index() {
 
   return (
     <View style={styles.root}>
-      {theme.dark && (
-        <ExpoImage
-          source={require("../src/assets/images/loginscreen.svg")}
-          contentFit="cover"
-          style={styles.backgroundImage}
-        />
-      )}
+      {/*{theme.dark && (*/}
+      {/*  <ExpoImage*/}
+      {/*    source={require("../src/assets/images/loginscreen.svg")}*/}
+      {/*    contentFit="cover"*/}
+      {/*    style={styles.backgroundImage}*/}
+      {/*  />*/}
+      {/*)}*/}
 
       <KeyboardAvoidingView
         style={styles.screen}
