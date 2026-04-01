@@ -4,6 +4,7 @@ import {
   inputColorsDark,
   navigationColorsDark,
   pillColorsDark,
+  spinnerGradient,
 } from "../colors";
 import { fonts } from "../fonts";
 import { borderRadius } from "../radius";
@@ -20,4 +21,7 @@ export const darkTheme: Theme = {
   },
   fonts,
   borderRadius,
+  gradients: {
+    spinner: spinnerGradient,
+  },
 };
