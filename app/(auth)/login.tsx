@@ -1,31 +1,5 @@
-import { ROUTES } from "@/shared/lib/routes";
-import { useRouter } from "expo-router";
-import { Button, StyleSheet, Text, View } from "react-native";
+import LoginScreen from "@/pages/LoginScreen";
 
-export default function LoginScreen() {
-  const router = useRouter();
-
-  const handleLogin = () => {
-    //TODO: Реализовать логику аутентификации
-    router.replace(ROUTES.tabs.root);
-  };
-
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Вход в приложение</Text>
-      <Button title="Войти" onPress={handleLogin} />
-    </View>
-  );
+export default function Login() {
+  return <LoginScreen />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
-});

@@ -1,4 +1,11 @@
 export const fonts = {
+  family: {
+    regular: "Montserrat-Regular",
+    medium: "Montserrat-Medium",
+    semibold: "Montserrat-SemiBold",
+    bold: "Montserrat-Bold",
+  },
+
   sizes: {
     xs: 12,
     sm: 14,
@@ -8,4 +15,4 @@ export const fonts = {
     title: 30,
     greeting: 26,
   },
-};
+} as const;

@@ -43,6 +43,12 @@ export interface Theme {
     spinner: GradientStop[];
   };
   fonts: {
+    family: {
+    regular: string;
+    medium: string;
+    semibold: string;
+    bold: string;
+  };
     sizes: {
       xs: number;
       sm: number;
