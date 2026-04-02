@@ -30,9 +30,18 @@ export interface ThemeColors {
   statusBar: "light" | "dark";
 }
 
+export interface GradientStop {
+  offset: string;
+  color: string;
+  opacity: string;
+}
+
 export interface Theme {
   dark: boolean;
   colors: ThemeColors;
+  gradients: {
+    spinner: GradientStop[];
+  };
   fonts: {
     sizes: {
       xs: number;

@@ -1,12 +1,12 @@
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router';
-import { ROUTES } from '@/shared/routes';
+import { ROUTES } from "@/shared/lib/routes";
+import { useRouter } from "expo-router";
+import { Button, StyleSheet, Text, View } from "react-native";
 
 export default function LoginScreen() {
   const router = useRouter();
 
   const handleLogin = () => {
-    //TODO: Реализовать логику аутентификации 
+    //TODO: Реализовать логику аутентификации
     router.replace(ROUTES.tabs.root);
   };
 
@@ -19,13 +19,13 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center' 
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  title: { 
-    fontSize: 24, 
-    marginBottom: 20 
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
   },
 });

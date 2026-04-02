@@ -4,6 +4,7 @@ import {
   inputColorsLight,
   navigationColorsLight,
   pillColorsLight,
+  spinnerGradient,
 } from "../colors";
 import { fonts } from "../fonts";
 import { borderRadius } from "../radius";
@@ -20,4 +21,7 @@ export const lightTheme: Theme = {
   },
   fonts,
   borderRadius,
+  gradients: {
+    spinner: spinnerGradient,
+  },
 };
