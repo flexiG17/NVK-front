@@ -8,7 +8,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   Pressable,
-  ScrollView,
   Text,
   TextInput,
   View,
@@ -61,7 +60,6 @@ export default function LoginScreen() {
         style={StyleSheet.absoluteFillObject}
       />
 
-      {theme.dark && (
         <View style={styles.topBlock}>
           <BlurView intensity={40} style={styles.campusWrapper}>
             <ExpoImage
@@ -74,17 +72,13 @@ export default function LoginScreen() {
             </View>
           </BlurView>
         </View>
-      )}
 
       <View style={styles.spacer} />
       <KeyboardAvoidingView
         style={styles.formBlock}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
-        <ScrollView
-          contentContainerStyle={styles.content}
-          keyboardShouldPersistTaps="handled"
-        >
+        <View style={styles.content} >
           <View style={styles.formWrap}>
             <Text style={styles.label}>{t('login')}</Text>
             <Controller
@@ -138,7 +132,8 @@ export default function LoginScreen() {
                       <Ionicons
                         name={showPassword ? "eye-off-outline" : "eye-outline"}
                         size={20}
-                        color={theme.colors.icon}
+                        // color={theme.colors.icon}
+                        color={"#FFFFFF"}
                       />
                     </Pressable>
                   </View>
@@ -178,9 +173,8 @@ export default function LoginScreen() {
               </Pressable>
             </View>
           </View>
-        </ScrollView>
+        </View>
       </KeyboardAvoidingView>
-
       <View style={styles.bottomSpacer} />
     </View>
   );
@@ -207,7 +201,7 @@ const useStyles = makeStyles((t) => ({
   },
   content: { 
     flexGrow: 1, 
-    justifyContent: "center", 
+    justifyContent: "flex-start", 
     paddingHorizontal: 24 
   },
   campusWrapper: { 
@@ -223,9 +217,10 @@ const useStyles = makeStyles((t) => ({
     width: "100%" 
   },
   titleLine: { 
-    color: t.colors.textPrimary, 
+    // color: t.colors.textPrimary, 
+    color: "#FFFFFF", // убрал смену темы, при светлой теме черный текст на картинке плохо читается
     fontSize: t.fonts.sizes.greeting, 
-    fontFamily: t.fonts.family.bold, 
+    fontFamily: t.fonts.family.semibold, 
     textAlign: "center", 
     marginTop: 6 
   },
@@ -235,9 +230,10 @@ const useStyles = makeStyles((t) => ({
   },
   label: { 
     width: "100%", 
-    color: t.colors.textPrimary, 
+    // color: t.colors.textPrimary, 
+    color: "#FFFFFF", // убрал смену темы, при светлой теме черный текст на розовом не очень контрастен
     fontSize: t.fonts.sizes.sm, 
-    fontFamily: t.fonts.family.medium, 
+    fontFamily: t.fonts.family.regular, 
     marginBottom: 10 
   },
   labelGap: { 
@@ -245,27 +241,31 @@ const useStyles = makeStyles((t) => ({
   },
   input: { 
     width: "100%",
-    height: 52, 
-    borderWidth: 2, 
-    borderColor: t.colors.border, 
+    height: 40, 
+    borderWidth: 1, 
+    // borderColor: t.colors.border, 
+    borderColor: "#FFFFFF",
     borderRadius: t.borderRadius.md, 
     paddingHorizontal: 16, 
     color: t.colors.inputText, 
-    backgroundColor: t.colors.inputBackground, 
+    // backgroundColor: t.colors.inputBackground, 
+    backgroundColor: "#FF0189",
     fontFamily: t.fonts.family.regular, 
     fontSize: t.fonts.sizes.md 
   },
   passwordContainer: { 
     width: "100%", 
-    height: 52, 
-    borderWidth: 2, 
-    borderColor: t.colors.border, 
+    height: 40, 
+    borderWidth: 1, 
+    // borderColor: t.colors.border, 
+    borderColor: "#FFFFFF",
     borderRadius: t.borderRadius.md, 
     flexDirection: "row", 
     alignItems: "center", 
     paddingLeft: 16, 
     paddingRight: 10, 
-    backgroundColor: t.colors.inputBackground 
+    // backgroundColor: t.colors.inputBackground 
+    backgroundColor: "#FF0189",
   },
   passwordInput: { 
     flex: 1, 
@@ -296,19 +296,19 @@ const useStyles = makeStyles((t) => ({
   loginButtonText: { 
     color: t.colors.textOnAccent, 
     fontSize: t.fonts.sizes.md, 
-    fontFamily: t.fonts.family.bold 
+    fontFamily: t.fonts.family.semibold 
   },
   registerButtonText: { 
     color: t.colors.textOnAccent, 
     fontSize: t.fonts.sizes.md, 
-    fontFamily: t.fonts.family.medium
+    fontFamily: t.fonts.family.regular
   },
   registerButton: { 
     width: "100%", 
     height: 52, 
     borderRadius: t.borderRadius.lg, 
     backgroundColor: "transparent", 
-    borderWidth: 2, 
+    borderWidth: 1, 
     borderColor: "#FFFFFF", 
     alignItems: "center", 
     justifyContent: "center", 
@@ -323,9 +323,10 @@ const useStyles = makeStyles((t) => ({
     marginTop: 18 
     },
   link: { 
-    color: t.colors.link, 
+    // color: t.colors.link, 
+    color: "#FFFFFF", // убрал смену темы, при светлой теме темно-синий текст на темной части градиента плохо читается
     fontSize: t.fonts.sizes.sm, 
-    fontFamily: t.fonts.family.medium 
+    fontFamily: t.fonts.family.regular 
   },
   linkGap: { 
     marginTop: 10 
