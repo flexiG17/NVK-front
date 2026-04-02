@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { View } from "react-native";
 import Animated, {
   useSharedValue,
@@ -6,7 +6,6 @@ import Animated, {
   withTiming,
   Easing,
 } from "react-native-reanimated";
-import { Bar } from "react-native-progress";
 import { LinearGradient } from "expo-linear-gradient";
 
 /**
@@ -112,18 +111,41 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   height = 8,
   animationDuration = 800,
 }) => {
-  // Нормализуем процент (0-100) в значение (0-1) для Bar
-  const normalizedPercent = percent / 100;
-
   const progress = useSharedValue(0);
+  const hasRunInitialMountAnimationRef = useRef(false);
+
+  const clampedPercent = Math.min(100, Math.max(0, percent));
+
+  // До первого paint (важно для web): иначе первый кадр уже с целевой шириной
+  useLayoutEffect(() => {
+    progress.value = 0;
+  }, [progress]);
 
   useEffect(() => {
-    progress.value = withTiming(percent, {
-      duration: animationDuration,
-      easing: Easing.inOut(Easing.cubic),
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [percent, animationDuration]);
+    const animate = () => {
+      progress.value = withTiming(clampedPercent, {
+        duration: animationDuration,
+        easing: Easing.inOut(Easing.cubic),
+      });
+    };
+
+    if (!hasRunInitialMountAnimationRef.current) {
+      hasRunInitialMountAnimationRef.current = true;
+      const frames = { outer: 0 as number, inner: 0 as number };
+      // Двойной rAF: один кадр с 0% успевает попасть на экран (runAfterInteractions на web часто слишком ранний)
+      frames.outer = requestAnimationFrame(() => {
+        frames.inner = requestAnimationFrame(() => {
+          animate();
+        });
+      });
+      return () => {
+        cancelAnimationFrame(frames.outer);
+        cancelAnimationFrame(frames.inner);
+      };
+    }
+
+    animate();
+  }, [clampedPercent, animationDuration, progress]);
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -142,12 +164,25 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
           overflow: "hidden",
         }}
       >
-        <Animated.View style={[{ height: "100%" }, animatedStyle]}>
+        <Animated.View
+          style={[
+            {
+              height: "100%",
+              borderRadius: height / 2,
+              overflow: "hidden",
+            },
+            animatedStyle,
+          ]}
+        >
           <LinearGradient
-            colors={["#FF011B", "#FF0189", "#FF911E", "#FFEB00"]}
+            colors={["#FFEB00", "#FF911E", "#FF0189", "#FF011B"]}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
-            style={{ width: "100%", height: "100%" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              borderRadius: height / 2,
+            }}
           />
         </Animated.View>
       </View>
@@ -155,20 +190,25 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   }
 
   return (
-    <Bar
-      progress={normalizedPercent}
-      width={null}
-      height={height}
-      color="#000000"
-      unfilledColor="#F0F0F0"
-      borderWidth={0}
-      animated={true}
-      animationConfig={{
-        duration: animationDuration,
-      }}
+    <View
       style={{
+        width: "100%",
+        height,
+        backgroundColor: "#F0F0F0",
         borderRadius: height / 2,
+        overflow: "hidden",
       }}
-    />
+    >
+      <Animated.View
+        style={[
+          {
+            height: "100%",
+            backgroundColor: "#000000",
+            borderRadius: height / 2,
+          },
+          animatedStyle,
+        ]}
+      />
+    </View>
   );
 };

@@ -13,6 +13,11 @@ export default function ProgressTestScreen() {
   const [animatedPercent, setAnimatedPercent] = useState(0);
   const [durationPercent, setDurationPercent] = useState(0);
 
+  // Анимация при монтировании компонента
+  useEffect(() => {
+    setPercent(50);
+  }, []);
+
   useEffect(() => {
     // Плавная анимация: обновляем процент каждые 15ms на 0.1% (тысячные доли)
     // Полный цикл от 0 до 100 за ~15 секунд, затем сброс
@@ -86,6 +91,38 @@ export default function ProgressTestScreen() {
           <ProgressBar percent={animatedPercent} type="gradient" height={12} />
         </View>
       </View>
+      {/* Тип Gradient */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Type: Gradient</Text>
+
+        <View style={styles.exampleGroup}>
+          <Text style={styles.exampleLabel}>25%</Text>
+          <View style={styles.progressContainer}>
+            <ProgressBar percent={25} type="gradient" />
+          </View>
+        </View>
+
+        <View style={styles.exampleGroup}>
+          <Text style={styles.exampleLabel}>50%</Text>
+          <View style={styles.progressContainer}>
+            <ProgressBar percent={50} type="gradient" />
+          </View>
+        </View>
+
+        <View style={styles.exampleGroup}>
+          <Text style={styles.exampleLabel}>75%</Text>
+          <View style={styles.progressContainer}>
+            <ProgressBar percent={75} type="gradient" />
+          </View>
+        </View>
+
+        <View style={styles.exampleGroup}>
+          <Text style={styles.exampleLabel}>100%</Text>
+          <View style={styles.progressContainer}>
+            <ProgressBar percent={100} type="gradient" />
+          </View>
+        </View>
+      </View>
 
       {/* Примеры разных высот */}
       <View style={styles.section}>
@@ -149,39 +186,6 @@ export default function ProgressTestScreen() {
           <Text style={styles.exampleLabel}>100%</Text>
           <View style={styles.progressContainer}>
             <ProgressBar percent={100} type="default" />
-          </View>
-        </View>
-      </View>
-
-      {/* Тип Gradient */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Type: Gradient</Text>
-
-        <View style={styles.exampleGroup}>
-          <Text style={styles.exampleLabel}>25%</Text>
-          <View style={styles.progressContainer}>
-            <ProgressBar percent={25} type="gradient" />
-          </View>
-        </View>
-
-        <View style={styles.exampleGroup}>
-          <Text style={styles.exampleLabel}>50%</Text>
-          <View style={styles.progressContainer}>
-            <ProgressBar percent={50} type="gradient" />
-          </View>
-        </View>
-
-        <View style={styles.exampleGroup}>
-          <Text style={styles.exampleLabel}>75%</Text>
-          <View style={styles.progressContainer}>
-            <ProgressBar percent={75} type="gradient" />
-          </View>
-        </View>
-
-        <View style={styles.exampleGroup}>
-          <Text style={styles.exampleLabel}>100%</Text>
-          <View style={styles.progressContainer}>
-            <ProgressBar percent={100} type="gradient" />
           </View>
         </View>
       </View>
