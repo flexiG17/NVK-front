@@ -17,6 +17,7 @@ export default function EventsScreen() {
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
+    pointerEvents: "auto",
   },
   container: {
     flexGrow: 1,
