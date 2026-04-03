@@ -22,10 +22,6 @@ export default function RootLayout() {
         name="leaderboard"
         options={{ headerShown: true, title: "Лидерборд" }}
       />
-      <Stack.Screen
-        name="progress-test"
-        options={{ headerShown: true, title: "ProgressBar Test" }}
-      />
     </Stack>
   );
 }

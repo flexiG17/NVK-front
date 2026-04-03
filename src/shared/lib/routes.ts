@@ -11,7 +11,6 @@ export const ROUTES = {
     profile: "/(tabs)/profile" as const,
   },
   leaderboard: "/leaderboard" as const,
-  progressTest: "/progress-test" as const,
   // Для маршрутов с параметрами
   dynamic: {
     event: (id: string) => `/(tabs)/events/${id}` as const,

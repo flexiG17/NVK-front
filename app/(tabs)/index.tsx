@@ -10,10 +10,6 @@ export default function HomeScreen() {
     router.push(ROUTES.leaderboard);
   };
 
-  const handleGoToProgressTest = () => {
-    router.push(ROUTES.progressTest);
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Главная страница</Text>
@@ -30,20 +26,6 @@ export default function HomeScreen() {
           style={styles.icon}
         />
         <Text style={styles.buttonText}>Открыть Лидерборд</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={[styles.button, { marginTop: 16, backgroundColor: "#FF6B6B" }]}
-        onPress={handleGoToProgressTest}
-        activeOpacity={0.7}
-      >
-        <Ionicons
-          name="speedometer-outline"
-          size={24}
-          color="white"
-          style={styles.icon}
-        />
-        <Text style={styles.buttonText}>ProgressBar Test</Text>
       </TouchableOpacity>
     </View>
   );
