@@ -18,5 +18,12 @@
       "one": "You have {{count}} item",
       "other": "You have {{count}} items"
     }
-  }
+  },
+  "welcomeNVK": "Welcome \nto НВК LIFE!",
+  "login": "Login (Email)*",
+  "password": "Password *",
+  "signIn": "Sign in",
+  "registration": "Registration",
+  "guest": "Continue as Guest",
+  "resetPassword": "Forgot password?"
 }
