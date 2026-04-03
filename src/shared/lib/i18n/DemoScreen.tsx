@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
@@ -6,20 +6,23 @@ import {
   StyleSheet,
   ScrollView,
   SafeAreaView,
-} from 'react-native';
-import { useLocalization } from './useLocalization';
+} from "react-native";
+import { useLocalization } from "./useLocalization";
 
 const DemoScreen: React.FC = () => {
   const { t, changeLanguage, currentLanguage, languages } = useLocalization();
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+      >
         {/* Заголовок */}
         <View style={styles.header}>
-          <Text style={styles.title}>{t('title')}</Text>
-          <Text style={styles.welcome}>{t('welcome')}</Text>
-          <Text style={styles.description}>{t('description')}</Text>
+          <Text style={styles.title}>{t("title")}</Text>
+          <Text style={styles.welcome}>{t("welcome")}</Text>
+          <Text style={styles.description}>{t("description")}</Text>
         </View>
 
         {/* Переключатель языков */}
@@ -38,7 +41,8 @@ const DemoScreen: React.FC = () => {
                 <Text
                   style={[
                     styles.langButtonText,
-                    currentLanguage === lang.code && styles.activeLangButtonText,
+                    currentLanguage === lang.code &&
+                      styles.activeLangButtonText,
                   ]}
                 >
                   {lang.name}
@@ -52,34 +56,28 @@ const DemoScreen: React.FC = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Интерполяция / Interpolation</Text>
           <Text style={styles.text}>
-            {t('user.greeting', { name: 'Пользователь' })}
+            {t("user.greeting", { name: "Пользователь" })}
           </Text>
-          <Text style={styles.text}>
-            {t('user.items', { count: 5 })}
-          </Text>
+          <Text style={styles.text}>{t("user.items", { count: 5 })}</Text>
         </View>
 
         {/* Функции */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Функции / Features</Text>
           <View style={styles.featureList}>
-            <Text style={styles.feature}>{t('features.feature1')}</Text>
-            <Text style={styles.feature}>{t('features.feature2')}</Text>
-            <Text style={styles.feature}>{t('features.feature3')}</Text>
+            <Text style={styles.feature}>{t("features.feature1")}</Text>
+            <Text style={styles.feature}>{t("features.feature2")}</Text>
+            <Text style={styles.feature}>{t("features.feature3")}</Text>
           </View>
         </View>
 
         {/* Кнопки */}
         <View style={styles.buttonSection}>
           <TouchableOpacity style={styles.primaryButton}>
-            <Text style={styles.primaryButtonText}>
-              {t('button.save')}
-            </Text>
+            <Text style={styles.primaryButtonText}>{t("button.save")}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.secondaryButton}>
-            <Text style={styles.secondaryButtonText}>
-              {t('button.cancel')}
-            </Text>
+            <Text style={styles.secondaryButtonText}>{t("button.cancel")}</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -90,34 +88,37 @@ const DemoScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: "#f8f9fa",
+  },
+  scrollView: {
+    flex: 1,
   },
   scrollContent: {
     padding: 20,
   },
   header: {
-    alignItems: 'center',
+    alignItems: "center",
     marginBottom: 30,
     paddingBottom: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#e9ecef',
+    borderBottomColor: "#e9ecef",
   },
   title: {
     fontSize: 32,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
-    color: '#2c3e50',
+    color: "#2c3e50",
   },
   welcome: {
     fontSize: 24,
-    fontWeight: '600',
+    fontWeight: "600",
     marginBottom: 8,
-    color: '#34495e',
+    color: "#34495e",
   },
   description: {
     fontSize: 16,
-    textAlign: 'center',
-    color: '#7f8c8d',
+    textAlign: "center",
+    color: "#7f8c8d",
     lineHeight: 22,
   },
   languageSection: {
@@ -125,86 +126,86 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
-    fontWeight: '700',
+    fontWeight: "700",
     marginBottom: 15,
-    color: '#2c3e50',
+    color: "#2c3e50",
   },
   languageSwitcher: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
     gap: 12,
   },
   langButton: {
     paddingHorizontal: 24,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: '#dee2e6',
+    borderColor: "#dee2e6",
     minWidth: 100,
-    alignItems: 'center',
+    alignItems: "center",
   },
   activeLangButton: {
-    backgroundColor: '#007AFF',
-    borderColor: '#007AFF',
+    backgroundColor: "#007AFF",
+    borderColor: "#007AFF",
   },
   langButtonText: {
     fontSize: 16,
-    fontWeight: '600',
-    color: '#495057',
+    fontWeight: "600",
+    color: "#495057",
   },
   activeLangButtonText: {
-    color: '#fff',
+    color: "#fff",
   },
   section: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 20,
     borderRadius: 16,
     marginBottom: 20,
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
     elevation: 3,
   },
   text: {
     fontSize: 16,
     lineHeight: 24,
     marginBottom: 8,
-    color: '#2c3e50',
+    color: "#2c3e50",
   },
   featureList: {
     gap: 8,
   },
   feature: {
     fontSize: 16,
-    color: '#495057',
+    color: "#495057",
     paddingLeft: 20,
     borderLeftWidth: 4,
-    borderLeftColor: '#007AFF',
+    borderLeftColor: "#007AFF",
     paddingVertical: 4,
   },
   buttonSection: {
     gap: 12,
   },
   primaryButton: {
-    backgroundColor: '#28a745',
+    backgroundColor: "#28a745",
     paddingVertical: 16,
     borderRadius: 12,
-    alignItems: 'center',
+    alignItems: "center",
   },
   primaryButtonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   secondaryButton: {
-    backgroundColor: '#6c757d',
+    backgroundColor: "#6c757d",
     paddingVertical: 16,
     borderRadius: 12,
-    alignItems: 'center',
+    alignItems: "center",
   },
   secondaryButtonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 18,
-    fontWeight: '500',
+    fontWeight: "500",
   },
 });
 
