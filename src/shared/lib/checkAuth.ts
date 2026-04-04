@@ -1,11 +1,8 @@
+import { isAuthSessionActive } from "@/shared/lib/authSession";
 
 export const checkAuth = async (): Promise<boolean> => {
-  // TODO: реализовать проверку авторизации
   try {
-    const token = null;
-    const isValid = false;
-
-    return !!token && isValid;
+    return await isAuthSessionActive();
   } catch {
     return false;
   }
