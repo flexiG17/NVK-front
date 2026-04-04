@@ -1,12 +1,13 @@
 import { ROUTES } from "@/shared/lib/routes";
+import { clearAuthSession } from "@/shared/lib/authSession";
 import { useRouter } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function ProfileScreen() {
   const router = useRouter();
 
-  const handleLogout = () => {
-    // TODO: Реализовать логику выхода из аккаунта
+  const handleLogout = async () => {
+    await clearAuthSession();
     router.replace(ROUTES.auth.login);
   };
 
