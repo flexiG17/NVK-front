@@ -1,0 +1,29 @@
+{
+  "welcome": "Welcome to our app!",
+  "title": "Demo App",
+  "description": "Internationalization demo with i18next",
+  "button": {
+    "changeLanguage": "Change Language",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "features": {
+    "feature1": "Fast performance",
+    "feature2": "Beautiful UI",
+    "feature3": "Multi-language support"
+  },
+  "user": {
+    "greeting": "Hello {{name}}!",
+    "items": {
+      "one": "You have {{count}} item",
+      "other": "You have {{count}} items"
+    }
+  },
+  "welcomeNVK": "Welcome \nto НВК LIFE!",
+  "login": "Login (Email)*",
+  "password": "Password *",
+  "signIn": "Sign in",
+  "registration": "Registration",
+  "guest": "Continue as Guest",
+  "resetPassword": "Forgot password?"
+}
