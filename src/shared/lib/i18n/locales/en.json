@@ -25,5 +25,15 @@
   "signIn": "Sign in",
   "registration": "Registration",
   "guest": "Continue as Guest",
-  "resetPassword": "Forgot password?"
+  "resetPassword": "Forgot password?",
+  "back": "back",
+  "navDescription": "Description",
+  "photos": "Photos",
+  "auditorium": "Auditorium",
+  "route": "Build a route",
+  "open": "Open",
+  "closed": "Closed",
+  "roomDetail": {
+    "P101": "What does the current workload and technical equipment mean?"
+  }
 }
