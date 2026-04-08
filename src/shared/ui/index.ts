@@ -1,3 +1,3 @@
 export * from "./ProgressCircle";
-export * from "./ContestDeadline";
+export * from "./LeaderboardTabs";
 export * from "./SearchInput";

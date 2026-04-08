@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { ContestDeadline } from "@/shared/ui/ContestDeadline";
+import { LeaderboardTabs } from "@/shared/ui/LeaderboardTabs";
 import { SearchInput } from "@/shared/ui/SearchInput";
 
 export default function GuestScreen() {
@@ -13,8 +13,11 @@ export default function GuestScreen() {
         paddingHorizontal: 20,
       }}
     >
-      <ContestDeadline />
-      <SearchInput placeholder="Поиск по ФИО" onSearch={(text) => console.log(text)} />
+      <LeaderboardTabs />
+      <SearchInput
+        placeholder="Поиск по ФИО"
+        onSearch={(text) => console.log(text)}
+      />
     </View>
   );
 }

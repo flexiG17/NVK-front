@@ -25,5 +25,12 @@
   "signIn": "Sign in",
   "registration": "Registration",
   "guest": "Continue as Guest",
-  "resetPassword": "Forgot password?"
+  "resetPassword": "Forgot password?",
+  "leaderboard": {
+    "contestDeadline": "Contest Deadline",
+    "allTime": "All Time"
+  },
+  "search": {
+    "placeholder": "Search by name"
+  }
 }

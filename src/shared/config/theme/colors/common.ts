@@ -16,6 +16,10 @@ export const commonColorsDark = {
   iconOnSurface: palette.white,
   link: "rgba(255,255,255,0.9)",
   statusBar: "light" as const,
+  leaderboardTabsButtonBackground: palette.dark800,
+  leaderboardTabsSlider: palette.pink,
+  leaderboardTabsText: palette.white,
+  leaderboardTabsTextDefault: palette.white,
 };
 
 export const commonColorsLight = {
@@ -34,4 +38,8 @@ export const commonColorsLight = {
   iconOnSurface: palette.dark700,
   link: "#3B3B88",
   statusBar: "dark" as const,
+  leaderboardTabsButtonBackground: palette.white,
+  leaderboardTabsSlider: palette.pink,
+  leaderboardTabsText: palette.white,
+  leaderboardTabsTextDefault: palette.black,
 };

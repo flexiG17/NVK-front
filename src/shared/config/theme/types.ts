@@ -28,6 +28,10 @@ export interface ThemeColors {
   eventCardBg: string;
   thumbPlaceholder: string;
   statusBar: "light" | "dark";
+  leaderboardTabsButtonBackground: string;
+  leaderboardTabsSlider: string;
+  leaderboardTabsText: string;
+  leaderboardTabsTextDefault: string;
 }
 
 export interface GradientStop {
@@ -44,11 +48,11 @@ export interface Theme {
   };
   fonts: {
     family: {
-    regular: string;
-    medium: string;
-    semibold: string;
-    bold: string;
-  };
+      regular: string;
+      medium: string;
+      semibold: string;
+      bold: string;
+    };
     sizes: {
       xs: number;
       sm: number;
