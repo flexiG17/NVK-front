@@ -1,4 +1,3 @@
-// eslint.config.js
 const expoConfig = require('eslint-config-expo/flat');
 const prettierPlugin = require('eslint-plugin-prettier');
 const prettierConfig = require('eslint-config-prettier');
@@ -6,10 +5,8 @@ const tsPlugin = require('@typescript-eslint/eslint-plugin');
 const tsParser = require('@typescript-eslint/parser');
 
 module.exports = [
-  // Базовая конфигурация Expo
   ...expoConfig,
 
-  // Игнорируемые файлы
   {
     ignores: [
       'dist/**',
@@ -26,7 +23,6 @@ module.exports = [
     ],
   },
 
-  // Основные правила
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
@@ -44,10 +40,7 @@ module.exports = [
       prettier: prettierPlugin,
     },
     rules: {
-      // Prettier integration
       'prettier/prettier': 'error',
-
-      // Неиспользуемые переменные - предупреждение
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
@@ -56,15 +49,9 @@ module.exports = [
           caughtErrorsIgnorePattern: '^_',
         },
       ],
-      'no-unused-vars': 'off', // Отключаем базовое правило
-
-      // Console.log - предупреждение
+      'no-unused-vars': 'off',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
-
-      // Множественные пустые строки - ошибка
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0, maxBOF: 0 }],
-
-      // Максимальная длина строки
       'max-len': [
         'warn',
         {
@@ -77,17 +64,11 @@ module.exports = [
           ignoreComments: true,
         },
       ],
-
-      // TypeScript any - предупреждение
       '@typescript-eslint/no-explicit-any': 'warn',
-
-      // React правила
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
-
-      // Дополнительные правила
       'no-debugger': 'warn',
       'prefer-const': 'warn',
       'no-var': 'error',
@@ -95,6 +76,5 @@ module.exports = [
     },
   },
 
-  // Prettier config должен быть последним
   prettierConfig,
 ];
