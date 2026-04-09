@@ -1,8 +1,8 @@
-// CardHeader.tsx
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { makeStyles } from "@/lib/theme";
 import { Entypo } from '@expo/vector-icons';
+import { useLocalization } from '@/shared/lib/i18n/useLocalization';
 
 interface CardHeaderProps {
   number: string;
@@ -11,12 +11,13 @@ interface CardHeaderProps {
 }
 
 export const CardHeader: React.FC<CardHeaderProps> = ({ number, room, onBack }) => {
+  const { t } = useLocalization();
   const styles = useStyles();
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.back} onPress={onBack}>
-        <Entypo name="chevron-small-left" size={16} color="black" />
-        <Text style={styles.backText}>назад</Text>
+        <Entypo name="chevron-small-left" size={16} style={styles.icon}/>
+        <Text style={styles.backText}>{t("back")}</Text>
       </TouchableOpacity>
 
       <View style={styles.center}>
@@ -45,8 +46,11 @@ const useStyles = makeStyles((t) => ({
   backText: {
     fontSize: t.fonts.sizes.md, 
     fontFamily: t.fonts.family.regular, 
+    color: t.colors.textPrimary,
   },
-
+  icon:{
+    color: t.colors.textPrimary,
+  },
   center: {
     alignItems: 'center',
   },
@@ -54,11 +58,12 @@ const useStyles = makeStyles((t) => ({
   number: {
     fontSize: t.fonts.sizes.lg, 
     fontFamily: t.fonts.family.semibold, 
+    color: t.colors.textPrimary,
   },
 
   room: {
-    color: '#666',
     fontSize: t.fonts.sizes.sm, 
     fontFamily: t.fonts.family.regular, 
+    color: t.colors.textSecondary,
   },
 }));

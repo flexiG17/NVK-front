@@ -2,7 +2,8 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { makeStyles } from "@/lib/theme";
-import { useLocalization } from '../lib/i18n/useLocalization';
+import { useLocalization } from '@/shared/lib/i18n/useLocalization';
+
 
 interface DescriptionCardProps {
   description: string;
@@ -21,7 +22,7 @@ export const DescriptionCard: React.FC<DescriptionCardProps> = ({ description, s
             { color: status === 'open' ? 'green' : '#EF302B' },
           ]}
         >
-          {status === 'open' ? t('open') : t('closed')}
+          {status === 'open' ? t('navigation.office.openStatus') : t('navigation.office.closedStatus')}
         </Text>
         <Text style={styles.description}>{description}</Text>
       </View>
@@ -40,8 +41,9 @@ const useStyles = makeStyles((t) => ({
     alignSelf: 'stretch',
   },
   card: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
+    // backgroundColor: '#FFFFFF',
+    backgroundColor: t.colors.surface,
+    borderRadius: t.borderRadius.lg,
     padding: 14,
     justifyContent: 'center',
     // width: '100%',
@@ -54,5 +56,6 @@ const useStyles = makeStyles((t) => ({
   description: { 
     fontSize: t.fonts.sizes.md, 
     fontFamily: t.fonts.family.semibold, 
+    color: t.colors.textPrimary,
   },
 }));

@@ -5,9 +5,11 @@ import { CardHeader } from './CardHeader';
 import { SegmentedControl } from './SegmentedControl';
 import { DescriptionCard } from './DescriptionCard';
 import { PhotoCarousel } from './PhotoCarousel';
-import { PrimaryButton } from './PrimaryButton';
-import { useLocalization } from '../lib/i18n/useLocalization';
-import { AnimatedSwitcher } from './AnimatedSegmentedButton';
+import { useLocalization } from '@/shared/lib/i18n/useLocalization';
+import { AnimatedSwitcher } from './AnimatedSwitcher';
+import { PrimaryButton } from '@/shared/ui';
+
+
 
 interface CardScreenProps {
   id: string;
@@ -35,9 +37,9 @@ export const CardScreen: React.FC<CardScreenProps> = ({ id }) => {
   return (
     <View style={styles.container} >
         <View style={styles.sheetContent}>
-          <CardHeader number='Р-101' room={t("auditorium")} />
+          <CardHeader number='Р-101' room={t("navigation.office.name")} />
            <SegmentedControl
-            options={[t("navDescription"), t("photos")]}
+            options={[t("description"), t("photos")]}
             selected={selectedTab}
             onChange={(index) => setSelectedTab(index === 0 ? 'description' : 'photos')}
           />
@@ -50,7 +52,7 @@ export const CardScreen: React.FC<CardScreenProps> = ({ id }) => {
               active={selectedTab}
               description={
                 <DescriptionCard
-                  description={t("roomDetail.P101")}
+                  description={t("navigation.office.roomDetail.P101")}
                   status={"open"}
                 />
               }

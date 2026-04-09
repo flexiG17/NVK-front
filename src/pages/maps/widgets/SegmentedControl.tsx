@@ -69,7 +69,7 @@ const useStyles = makeStyles((t) => ({
   container: {
     width: controlWidth,
     flexDirection: 'row',
-    backgroundColor: '#F6F6F6',
+    backgroundColor: t.colors.background,
     borderRadius: 20,
     overflow: 'hidden',
   },
@@ -79,13 +79,14 @@ const useStyles = makeStyles((t) => ({
     top: 2,
     bottom: 2,
     left: 2,
-    backgroundColor: '#FFFFFF',
+    // backgroundColor: '#FFFFFF',
+    backgroundColor: t.colors.surface,
     borderRadius: 12,
   },
 
   option: {
     flex: 1,
-    paddingVertical: 10, // уменьшена толщина
+    paddingVertical: 10, 
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -93,5 +94,6 @@ const useStyles = makeStyles((t) => ({
   optionText: {
     fontSize: t.fonts.sizes.md, 
     fontFamily: t.fonts.family.semibold, 
+    color: t.colors.textPrimary,
   },
 }));

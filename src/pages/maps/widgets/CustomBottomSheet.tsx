@@ -80,8 +80,8 @@ const useStyles = makeStyles((t) => ({
     paddingBottom: 104,
   },
   background: {
-    backgroundColor: "#f6f6f6", 
-    // backgroundColor: t.colors.background,
+    // backgroundColor: "#f6f6f6", 
+    backgroundColor: t.colors.background, 
     borderRadius: 26,
   },
   handleBar: {

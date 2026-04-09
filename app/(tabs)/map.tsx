@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { CardScreen } from '@/shared/ui/CardScreen';
-import { CustomBottomSheet, CustomBottomSheetRef } from '@/shared/ui';
 import { useRef } from 'react';
+import { CustomBottomSheet, CustomBottomSheetRef } from '@/pages/maps/widgets/CustomBottomSheet';
+import { CardScreen } from '@/pages/maps/widgets/CardScreen';
 
 export default function MapScreen() {
   const sheetRef = useRef<CustomBottomSheetRef>(null);
