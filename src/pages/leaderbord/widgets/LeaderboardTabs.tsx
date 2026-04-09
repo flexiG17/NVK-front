@@ -85,7 +85,7 @@ const useStyles = makeStyles((t) => ({
     height: 38,
     borderRadius: t.borderRadius.xl,
     overflow: "hidden",
-    backgroundColor: t.colors.leaderboardTabsButtonBackground,
+    backgroundColor: t.colors.surface,
     marginHorizontal: HORIZONTAL_PADDING,
     padding: 4,
   },
@@ -94,7 +94,7 @@ const useStyles = makeStyles((t) => ({
     top: 4,
     left: 4,
     height: 30,
-    backgroundColor: t.colors.leaderboardTabsSlider,
+    backgroundColor: t.colors.pink,
     borderRadius: t.borderRadius.xl,
   },
   button: {
@@ -108,12 +108,12 @@ const useStyles = makeStyles((t) => ({
     textAlign: "center",
   },
   selectedText: {
-    color: t.colors.leaderboardTabsText,
+    color: t.colors.textOnAccent,
     fontFamily: t.fonts.family.semibold,
     fontWeight: "600",
   },
   defaultText: {
-    color: t.colors.leaderboardTabsTextDefault,
+    color: t.colors.textPrimary,
     fontFamily: t.fonts.family.regular,
     fontWeight: "400",
   },

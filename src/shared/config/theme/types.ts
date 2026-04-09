@@ -25,13 +25,10 @@ export interface ThemeColors {
   pillBorder: string;
   bottomBar: string;
   tabIcon: string;
+  pink: string;
   eventCardBg: string;
   thumbPlaceholder: string;
   statusBar: "light" | "dark";
-  leaderboardTabsButtonBackground: string;
-  leaderboardTabsSlider: string;
-  leaderboardTabsText: string;
-  leaderboardTabsTextDefault: string;
 }
 
 export interface GradientStop {

@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { LeaderboardTabs } from "@/shared/ui/LeaderboardTabs";
+import { LeaderboardTabs } from "@/pages/leaderbord/widgets/LeaderboardTabs";
 import { SearchInput } from "@/shared/ui/SearchInput";
 
 export default function GuestScreen() {

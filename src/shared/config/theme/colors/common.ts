@@ -14,12 +14,9 @@ export const commonColorsDark = {
   accentSecondary: palette.navyDark,
   icon: palette.white,
   iconOnSurface: palette.white,
+  pink: palette.pink,
   link: "rgba(255,255,255,0.9)",
   statusBar: "light" as const,
-  leaderboardTabsButtonBackground: palette.dark800,
-  leaderboardTabsSlider: palette.pink,
-  leaderboardTabsText: palette.white,
-  leaderboardTabsTextDefault: palette.white,
 };
 
 export const commonColorsLight = {
@@ -36,10 +33,7 @@ export const commonColorsLight = {
   accentSecondary: palette.navyDark,
   icon: palette.dark700,
   iconOnSurface: palette.dark700,
+  pink: palette.pink,
   link: "#3B3B88",
   statusBar: "dark" as const,
-  leaderboardTabsButtonBackground: palette.white,
-  leaderboardTabsSlider: palette.pink,
-  leaderboardTabsText: palette.white,
-  leaderboardTabsTextDefault: palette.black,
 };

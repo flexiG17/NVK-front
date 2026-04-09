@@ -66,7 +66,7 @@ const useStyles = makeStyles((t) => ({
   input: {
     height: 40,
     color: t.colors.textOnAccent,
-    fontSize: 15,
+    fontSize: t.fonts.sizes.md,
     fontFamily: t.fonts.family.regular,
   },
   underline: {
