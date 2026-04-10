@@ -14,6 +14,7 @@ export const commonColorsDark = {
   accentSecondary: palette.navyDark,
   icon: palette.white,
   iconOnSurface: palette.white,
+  pink: palette.pink,
   link: "rgba(255,255,255,0.9)",
   statusBar: "light" as const,
 };
@@ -32,6 +33,7 @@ export const commonColorsLight = {
   accentSecondary: palette.navyDark,
   icon: palette.dark700,
   iconOnSurface: palette.dark700,
+  pink: palette.pink,
   link: "#3B3B88",
   statusBar: "dark" as const,
 };

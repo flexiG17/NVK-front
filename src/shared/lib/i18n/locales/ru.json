@@ -25,5 +25,12 @@
   "signIn": "Войти",
   "registration": "Регистрация",
   "guest": "Войти как гость",
-  "resetPassword": "Восстановление пароля"
+  "resetPassword": "Восстановление пароля",
+  "leaderboard": {
+    "contestDeadline": "Конкурсный срок",
+    "allTime": "Все время"
+  },
+  "search": {
+    "placeholder": "Поиск по ФИО"
+  }
 }

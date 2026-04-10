@@ -25,6 +25,7 @@ export interface ThemeColors {
   pillBorder: string;
   bottomBar: string;
   tabIcon: string;
+  pink: string;
   eventCardBg: string;
   thumbPlaceholder: string;
   statusBar: "light" | "dark";
@@ -44,11 +45,11 @@ export interface Theme {
   };
   fonts: {
     family: {
-    regular: string;
-    medium: string;
-    semibold: string;
-    bold: string;
-  };
+      regular: string;
+      medium: string;
+      semibold: string;
+      bold: string;
+    };
     sizes: {
       xs: number;
       sm: number;
