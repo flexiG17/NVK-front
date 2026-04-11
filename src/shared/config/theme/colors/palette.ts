@@ -8,6 +8,8 @@ export const palette = {
   indigo: "#3A3B82",
   indigoLight: "#5C5DB8",
 
+  pink: "#FF0189",
+
   dark900: "#121218",
   dark800: "#1E1E2A",
   dark700: "#2A2A3C",
