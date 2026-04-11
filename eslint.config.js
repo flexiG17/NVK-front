@@ -42,7 +42,7 @@ module.exports = [
     rules: {
       'prettier/prettier': 'error',
       '@typescript-eslint/no-unused-vars': [
-        'warn',
+        'error',
         {
           argsIgnorePattern: '^_',
           varsIgnorePattern: '^_',
@@ -50,10 +50,10 @@ module.exports = [
         },
       ],
       'no-unused-vars': 'off',
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-console': ['error', { allow: ['warn', 'error'] }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0, maxBOF: 0 }],
       'max-len': [
-        'warn',
+        'error',
         {
           code: 130,
           tabWidth: 2,
@@ -64,13 +64,13 @@ module.exports = [
           ignoreComments: true,
         },
       ],
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-explicit-any': 'error',
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
-      'no-debugger': 'warn',
-      'prefer-const': 'warn',
+      'react-hooks/exhaustive-deps': 'error',
+      'no-debugger': 'error',
+      'prefer-const': 'error',
       'no-var': 'error',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
     },
