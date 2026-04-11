@@ -3,6 +3,7 @@ export const palette = {
   black: "#000000",
 
   navy: "#0B2B6D",
+  navyMedium: "#2F3E90",
   navyDark: "#2F4CA2",
 
   indigo: "#3A3B82",

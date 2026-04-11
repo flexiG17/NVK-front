@@ -86,7 +86,6 @@ const useStyles = makeStyles((t) => ({
     borderRadius: t.borderRadius.xl,
     overflow: "hidden",
     backgroundColor: t.colors.surface,
-    marginHorizontal: HORIZONTAL_PADDING,
     padding: 4,
   },
   slider: {
