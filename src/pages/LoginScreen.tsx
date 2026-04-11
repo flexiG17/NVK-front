@@ -19,6 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { loginSchema, LoginFormData } from "@/features/auth/loginSchema";
 import { useLocalization } from "@/shared/lib/i18n/useLocalization";
+import { PrimaryButton } from "@/shared/ui/PrimaryButton";
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -154,17 +155,11 @@ export default function LoginScreen() {
               )}
             />
 
-            <Pressable
-              style={({ pressed }) => [
-                styles.loginButton,
-                pressed && styles.loginButtonPressed,
-                !isValid && { opacity: 0.5 },
-              ]}
+            <PrimaryButton 
+              title={t('signIn')} 
+              onPress={handleSubmit(onSubmit)} 
               disabled={!isValid}
-              onPress={handleSubmit(onSubmit)}
-            >
-              <Text style={styles.loginButtonText}>{t("signIn")}</Text>
-            </Pressable>
+            />
 
             <Pressable
               style={({ pressed }) => [

@@ -7,6 +7,7 @@ import { ThemeProvider } from "./providers";
 import { useFonts } from "expo-font";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/shared/lib/i18n";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 function InnerLayout() {
   const { theme } = useTheme();
@@ -55,11 +56,14 @@ export default function RootLayout() {
 
   if (!loaded) return null;
   return (
-    <I18nextProvider i18n={i18n}>
-      <ThemeProvider>
-        <InnerLayout />
-      </ThemeProvider>
-    </I18nextProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <I18nextProvider i18n={i18n}>
+        <ThemeProvider>
+          <InnerLayout />
+        </ThemeProvider> 
+      </I18nextProvider>
+    </GestureHandlerRootView>
+    
     
   );
 }

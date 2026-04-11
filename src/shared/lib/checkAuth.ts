@@ -4,7 +4,7 @@ export const checkAuth = async (): Promise<boolean> => {
   try {
     const token = null;
     const isValid = false;
-
+    
     return !!token && isValid;
   } catch {
     return false;
