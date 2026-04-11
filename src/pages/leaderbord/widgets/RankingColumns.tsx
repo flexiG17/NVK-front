@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import { makeStyles } from "@/lib/theme";
 import { fonts, palette } from "@/shared/config/theme";
 import { LinearGradient } from "expo-linear-gradient";
@@ -9,55 +9,80 @@ import { currencyIcon } from "@/assets/icons/currency";
 interface UserRanking {
   name: string;
   amount: number;
-  place?: number;
+  avatar?: string;
 }
 
 interface RankingColumnsProps {
   users: UserRanking[];
-  maxAmount?: number;
 }
 
-export const RankingColumns = ({
-  users,
-  maxAmount = Math.max(...users.map((u) => u.amount)),
-}: RankingColumnsProps) => {
+export const RankingColumns = ({ users }: RankingColumnsProps) => {
   const styles = useStyles();
+
+  // Sort users by amount in descending order
+  const sortedUsers = [...users].sort((a, b) => b.amount - a.amount);
+
+  // Get top 3 users
+  const topThree = sortedUsers.slice(0, 3);
+
+  const renderUserColumn = (user: UserRanking, rank: number) => (
+    <View key={rank} style={styles.userColumn}>
+      {/* User info */}
+      <View style={styles.userInfo}>
+        <View style={styles.avatarBox}>
+          {user.avatar ? (
+            <Image source={{ uri: user.avatar }} style={styles.avatarImage} />
+          ) : (
+            <SvgXml xml={avatarIcon} width={60} height={60} />
+          )}
+        </View>
+
+        <Text style={styles.nameText}>{user.name}</Text>
+
+        <View style={styles.amountContainer}>
+          <SvgXml xml={currencyIcon} width={14} height={13} />
+          <Text style={styles.amountText}>{user.amount}</Text>
+        </View>
+      </View>
+
+      {/* Gradient column directly below */}
+      <View style={styles.columnContainer}>
+        <View
+          style={[styles.columnWrapper, { height: [80, 60, 45][rank - 1] }]}
+        >
+          <LinearGradient
+            colors={["#FF011B", "#FF0189", "#FF911E", "#FFEB00"]}
+            start={{ x: 0.5, y: 0 }}
+            end={{ x: 0.5, y: 1 }}
+            style={styles.column}
+          />
+          <View style={styles.overlayWhite} />
+          <Text style={styles.placeNumber}>{rank}</Text>
+        </View>
+      </View>
+    </View>
+  );
 
   return (
     <View style={styles.container}>
-      {users.map((user, index) => {
-        const columnHeight = (user.amount / maxAmount) * 120; // max height 120px
-        return (
-          <View key={index} style={styles.userColumn}>
-            {/* User info */}
-            <View style={styles.userInfo}>
-              <View style={styles.avatarBox}>
-                <SvgXml xml={avatarIcon} width={60} height={60} />
-              </View>
+      <View style={styles.rowContainer}>
+        {/* 2nd place - left */}
+        {topThree[1] ? (
+          renderUserColumn(topThree[1], 2)
+        ) : (
+          <View style={styles.placeholderColumn} />
+        )}
 
-              <Text style={styles.nameText}>{user.name}</Text>
+        {/* 1st place - center */}
+        {topThree[0] ? renderUserColumn(topThree[0], 1) : null}
 
-              <View style={styles.amountContainer}>
-                <SvgXml xml={currencyIcon} width={14} height={13} />
-                <Text style={styles.amountText}>{user.amount}</Text>
-              </View>
-            </View>
-
-            {/* Gradient column directly below */}
-            <View style={[styles.columnWrapper, { height: columnHeight }]}>
-              <LinearGradient
-                colors={["#FF011B", "#FF0189", "#FF911E", "#FFEB00"]}
-                start={{ x: 0.5, y: 0 }}
-                end={{ x: 0.5, y: 1 }}
-                style={styles.column}
-              />
-              {user.place !== undefined && (
-                <Text style={styles.placeNumber}>{user.place}</Text>
-              )}
-            </View>
-          </View>
-        );
-      })}
+        {/* 3rd place - right */}
+        {topThree[2] ? (
+          renderUserColumn(topThree[2], 3)
+        ) : (
+          <View style={styles.placeholderColumn} />
+        )}
+      </View>
     </View>
   );
 };
@@ -65,21 +90,43 @@ export const RankingColumns = ({
 const useStyles = makeStyles(() => ({
   container: {
     width: "100%",
+    justifyContent: "center",
+  },
+  rowContainer: {
+    width: "100%",
     flexDirection: "row",
     gap: 12,
     alignItems: "flex-end",
+    justifyContent: "center",
   },
   userColumn: {
     alignItems: "center",
-    height: 280,
-    justifyContent: "space-between",
+    height: 210,
+    gap: 8,
     flex: 1,
+    minWidth: 80,
+    flexDirection: "column",
+  },
+  placeholderColumn: {
+    flex: 1,
+    minWidth: 80,
   },
   userInfo: {
     alignItems: "center",
     gap: 4,
-    minHeight: 140,
     justifyContent: "center",
+    flexShrink: 0,
+  },
+  columnContainer: {
+    height: 80,
+    justifyContent: "flex-end",
+    width: "100%",
+  },
+  columnWrapper: {
+    position: "relative",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    width: "100%",
   },
   avatarBox: {
     width: 60,
@@ -87,17 +134,23 @@ const useStyles = makeStyles(() => ({
     borderRadius: 30,
     overflow: "hidden",
   },
+  avatarImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+  },
   amountContainer: {
     flexDirection: "row",
     alignItems: "center",
     gap: 4,
+    width: 56,
     backgroundColor: palette.white,
     borderRadius: 10,
     paddingHorizontal: 8,
     paddingVertical: 2,
   },
   amountText: {
-    fontSize: fonts.sizes.sm,
+    fontSize: fonts.sizes.xs,
     fontFamily: fonts.family.regular,
     color: palette.dark900,
   },
@@ -114,12 +167,6 @@ const useStyles = makeStyles(() => ({
     borderTopLeftRadius: 12,
     borderTopRightRadius: 12,
   },
-  columnWrapper: {
-    position: "relative",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    width: "100%",
-  },
   placeNumber: {
     position: "absolute",
     fontSize: 24,
@@ -129,5 +176,17 @@ const useStyles = makeStyles(() => ({
     left: "50%",
     transform: [{ translateX: -6 }, { translateY: -12 }],
     zIndex: 1,
+  },
+  overlayWhite: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "#FFFFFF",
+    opacity: 0.3,
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
+    zIndex: 0,
   },
 }));

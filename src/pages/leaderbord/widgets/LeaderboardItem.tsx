@@ -44,7 +44,7 @@ export const LeaderboardItem = ({
 
       {/* Currency badge */}
       <View style={styles.currencyBadge}>
-        <SvgXml xml={currencyIconWhite} width={12} height={11} />
+        <SvgXml xml={currencyIconWhite} width={14} height={14} />
         <Text style={styles.currencyText}>{currency}</Text>
       </View>
     </View>
@@ -61,9 +61,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.colors.surface,
     borderRadius: theme.borderRadius.md,
     marginBottom: 8,
+    minHeight: 64,
   },
   placeNumber: {
-    fontSize: fonts.sizes.lg,
+    fontSize: fonts.sizes.xl,
     fontFamily: fonts.family.bold,
     color: theme.colors.textPrimary,
     width: 30,
@@ -89,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
   },
   nameText: {
     fontSize: fonts.sizes.sm,
-    fontFamily: fonts.family.semibold,
+    fontFamily: fonts.family.regular,
     color: theme.colors.textPrimary,
   },
   groupText: {

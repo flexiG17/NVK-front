@@ -29,11 +29,14 @@ export default function GuestScreen() {
       >
         <RankingColumns
           users={[
-            { name: "Фамилия Имя", amount: 234, place: 2 },
-            { name: "Фамилия Имя", amount: 543, place: 1 },
-            { name: "Фамилия Имя", amount: 210, place: 3 },
+            { name: "Фамилия Имя", amount: 234 },
+            {
+              name: "Фамилия Имя",
+              amount: 543,
+              avatar: "https://i.pravatar.cc/60?img=1",
+            },
+            { name: "Фамилия Имя", amount: 210 },
           ]}
-          maxAmount={543}
         />
       </View>
       <View>
