@@ -14,7 +14,7 @@ export const rankingColumnsGradient = [
   "#FF911E",
   "#FFEB00",
 ] as const;
-export const rankingColumnsLocations = [0, 0.39, 0.8, 1] as const;
+export const rankingColumnsLocations = [0.05, 0.39, 0.8, 1] as const;
 
 export const progressBarGradient = [
   "#FFEB00",
