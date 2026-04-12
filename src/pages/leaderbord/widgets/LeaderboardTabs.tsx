@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { makeStyles } from "@/lib/theme";
 import { useState, useRef, useEffect } from "react";
+import { useLocalization } from "@/shared/lib/i18n";
 
 interface LeaderboardTabsProps {
   leftText?: string;
@@ -20,8 +21,9 @@ export const LeaderboardTabs = ({
   rightText,
 }: LeaderboardTabsProps) => {
   const { width: screenWidth } = useWindowDimensions();
-  const defaultLeftText = leftText || "Конкурсный срок";
-  const defaultRightText = rightText || "Все время";
+  const { t } = useLocalization();
+  const defaultLeftText = leftText || t("leaderboard.competitionDeadline");
+  const defaultRightText = rightText || t("leaderboard.allTime");
   const styles = useStyles();
   const [isLeftSelected, setIsLeftSelected] = useState(true);
   const slideAnim = useRef(new Animated.Value(0)).current;

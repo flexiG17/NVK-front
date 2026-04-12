@@ -41,5 +41,9 @@
   },
   "search": {
     "placeholder": "Search by name"
+  },
+  "leaderboard": {
+    "competitionDeadline": "Competition deadline",
+    "allTime": "All time"
   }
 }
