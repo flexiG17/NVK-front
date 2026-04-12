@@ -1,10 +1,13 @@
 import { View, Text, Image } from "react-native";
 import { makeStyles } from "@/lib/theme";
 import { fonts, palette } from "@/shared/config/theme";
+import {
+  rankingColumnsGradient,
+  rankingColumnsLocations,
+} from "@/shared/config/theme/colors";
 import { LinearGradient } from "expo-linear-gradient";
-import { SvgXml } from "react-native-svg";
-import { avatarIcon } from "@/assets/icons/avatar";
-import { currencyIcon } from "@/assets/icons/currency";
+import AvatarIcon from "@/assets/icons/avatar.svg";
+import CurrencyIcon from "@/assets/icons/currency.svg";
 
 interface UserRanking {
   name: string;
@@ -33,14 +36,14 @@ export const RankingColumns = ({ users }: RankingColumnsProps) => {
           {user.avatar ? (
             <Image source={{ uri: user.avatar }} style={styles.avatarImage} />
           ) : (
-            <SvgXml xml={avatarIcon} width={60} height={60} />
+            <AvatarIcon width={60} height={60} color={palette.gray600} />
           )}
         </View>
 
         <Text style={styles.nameText}>{user.name}</Text>
 
         <View style={styles.amountContainer}>
-          <SvgXml xml={currencyIcon} width={14} height={13} />
+          <CurrencyIcon width={14} height={13} color={palette.navyMedium} />
           <Text style={styles.amountText}>{user.amount}</Text>
         </View>
       </View>
@@ -51,7 +54,8 @@ export const RankingColumns = ({ users }: RankingColumnsProps) => {
           style={[styles.columnWrapper, { height: [80, 60, 45][rank - 1] }]}
         >
           <LinearGradient
-            colors={["#FF011B", "#FF0189", "#FF911E", "#FFEB00"]}
+            colors={rankingColumnsGradient}
+            locations={rankingColumnsLocations}
             start={{ x: 0.5, y: 0 }}
             end={{ x: 0.5, y: 1 }}
             style={styles.column}

@@ -45,6 +45,7 @@ export default function GuestScreen() {
           name="Фамилия Имя"
           group="РИ-150932"
           currency={209}
+          avatar="https://i.pravatar.cc/60?img=2"
         />
         <LeaderboardItem
           place={5}

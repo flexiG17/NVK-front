@@ -1,9 +1,8 @@
 import { View, Text, Image } from "react-native";
 import { makeStyles } from "@/lib/theme";
 import { fonts, palette } from "@/shared/config/theme";
-import { SvgXml } from "react-native-svg";
-import { avatarIcon } from "@/assets/icons/avatar";
-import { currencyIconWhite } from "@/assets/icons/currency";
+import AvatarIcon from "@/assets/icons/avatar.svg";
+import CurrencyIcon from "@/assets/icons/currency.svg";
 
 interface LeaderboardItemProps {
   place: number;
@@ -32,7 +31,7 @@ export const LeaderboardItem = ({
         {avatar ? (
           <Image source={{ uri: avatar }} style={styles.avatarImage} />
         ) : (
-          <SvgXml xml={avatarIcon} width={32} height={32} />
+          <AvatarIcon width={32} height={32} color={palette.gray600} />
         )}
       </View>
 
@@ -44,7 +43,7 @@ export const LeaderboardItem = ({
 
       {/* Currency badge */}
       <View style={styles.currencyBadge}>
-        <SvgXml xml={currencyIconWhite} width={14} height={14} />
+        <CurrencyIcon width={14} height={14} color={palette.white} />
         <Text style={styles.currencyText}>{currency}</Text>
       </View>
     </View>

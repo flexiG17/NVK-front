@@ -39,14 +39,6 @@
       }
     }
   },
-  "leaderboard": {
-    "contestDeadline": "Конкурсный срок",
-    "allTime": "Все время",
-    "place": "Место",
-    "name": "Имя",
-    "group": "Группа",
-    "currency": "Баллы"
-  },
   "search": {
     "placeholder": "Поиск по ФИО"
   }

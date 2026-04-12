@@ -39,14 +39,6 @@
       }
     }
   },
-  "leaderboard": {
-    "contestDeadline": "Contest Deadline",
-    "allTime": "All Time",
-    "place": "Place",
-    "name": "Name",
-    "group": "Group",
-    "currency": "Points"
-  },
   "search": {
     "placeholder": "Search by name"
   }

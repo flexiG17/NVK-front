@@ -155,9 +155,9 @@ export default function LoginScreen() {
               )}
             />
 
-            <PrimaryButton 
-              title={t('signIn')} 
-              onPress={handleSubmit(onSubmit)} 
+            <PrimaryButton
+              title={t("signIn")}
+              onPress={handleSubmit(onSubmit)}
               disabled={!isValid}
             />
 
@@ -258,7 +258,7 @@ const useStyles = makeStyles((t) => ({
     paddingHorizontal: 16,
     color: t.colors.inputText,
     // backgroundColor: t.colors.inputBackground,
-    backgroundColor: "#FF0189",
+    backgroundColor: t.colors.pink,
     fontFamily: t.fonts.family.regular,
     fontSize: t.fonts.sizes.md,
   },
@@ -274,7 +274,7 @@ const useStyles = makeStyles((t) => ({
     paddingLeft: 16,
     paddingRight: 10,
     // backgroundColor: t.colors.inputBackground
-    backgroundColor: "#FF0189",
+    backgroundColor: t.colors.pink,
   },
   passwordInput: {
     flex: 1,
