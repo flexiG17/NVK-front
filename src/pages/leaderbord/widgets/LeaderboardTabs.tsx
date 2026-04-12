@@ -20,9 +20,9 @@ export const LeaderboardTabs = ({
   leftText,
   rightText,
 }: LeaderboardTabsProps) => {
-  const { t } = useLocalization();
   const { width: screenWidth } = useWindowDimensions();
-  const defaultLeftText = leftText || t("leaderboard.contestDeadline");
+  const { t } = useLocalization();
+  const defaultLeftText = leftText || t("leaderboard.competitionDeadline");
   const defaultRightText = rightText || t("leaderboard.allTime");
   const styles = useStyles();
   const [isLeftSelected, setIsLeftSelected] = useState(true);
@@ -86,7 +86,6 @@ const useStyles = makeStyles((t) => ({
     borderRadius: t.borderRadius.xl,
     overflow: "hidden",
     backgroundColor: t.colors.surface,
-    marginHorizontal: HORIZONTAL_PADDING,
     padding: 4,
   },
   slider: {

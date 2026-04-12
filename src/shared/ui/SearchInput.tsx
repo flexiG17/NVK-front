@@ -1,8 +1,8 @@
 import { View, TextInput, Pressable } from "react-native";
-import { SvgXml } from "react-native-svg";
 import { makeStyles } from "@/lib/theme";
+import { palette } from "@/shared/config/theme";
 import { useState } from "react";
-import { searchIcon } from "@/assets/icons/search";
+import SearchIcon from "@/assets/icons/search.svg";
 import { useLocalization } from "@/shared/lib/i18n";
 
 interface SearchInputProps {
@@ -40,7 +40,7 @@ export const SearchInput = ({ placeholder, onSearch }: SearchInputProps) => {
           />
         </View>
         <Pressable style={styles.iconButton} onPress={handleSearchPress}>
-          <SvgXml xml={searchIcon} width={23} height={23} />
+          <SearchIcon width={23} height={23} color={palette.white} />
         </Pressable>
       </View>
       <View style={styles.underline} />

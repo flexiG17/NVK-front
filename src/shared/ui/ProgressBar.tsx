@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { progressBarGradient } from "@/shared/config/theme/colors";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -175,7 +176,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
           ]}
         >
           <LinearGradient
-            colors={["#FFEB00", "#FF911E", "#FF0189", "#FF011B"]}
+            colors={progressBarGradient}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
             style={{

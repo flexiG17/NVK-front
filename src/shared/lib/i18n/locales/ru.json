@@ -38,13 +38,12 @@
         "P101": "Что значит текущая загруженность и тех оснащение?"
       }
     }
-  }
-}
-  "leaderboard": {
-    "contestDeadline": "Конкурсный срок",
-    "allTime": "Все время"
   },
   "search": {
     "placeholder": "Поиск по ФИО"
+  },
+  "leaderboard": {
+    "competitionDeadline": "Конкурсный срок",
+    "allTime": "Все время"
   }
 }
