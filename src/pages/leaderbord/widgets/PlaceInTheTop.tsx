@@ -36,8 +36,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.borderRadius.md,
     padding: 16,
     marginVertical: 12,
-    marginTop: 17,
-    marginBottom: 30,
+    marginTop: 16,
+    marginBottom: 28,
   },
   content: {
     flexDirection: "row",

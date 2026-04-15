@@ -1,4 +1,4 @@
-import { ScrollView, View } from "react-native";
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { ImageBackground } from "expo-image";
 import { makeStyles } from "@/lib/theme";
 import { LeaderboardTabs } from "@/pages/leaderbord/widgets/LeaderboardTabs";
@@ -24,8 +24,8 @@ export default function LeaderboardScreen() {
     <View style={styles.backgroundContainer}>
       <ImageBackground
         source={require("@/assets/images/leaderboard-background.png")}
-        style={styles.backgroundImage}
-        resizeMode="cover"
+        style={StyleSheet.absoluteFillObject}
+        contentFit="fill"
       />
       <ScrollView
         style={styles.scrollView}
@@ -66,13 +66,6 @@ export default function LeaderboardScreen() {
 const useStyles = makeStyles((theme) => ({
   backgroundContainer: {
     flex: 1,
-  },
-  backgroundImage: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
   },
   scrollView: {
     flex: 1,

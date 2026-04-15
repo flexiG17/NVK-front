@@ -100,7 +100,7 @@ const useStyles = makeStyles(() => ({
   container: {
     width: "100%",
     justifyContent: "center",
-    marginBottom: 17,
+    marginBottom: 28,
   },
   rowContainer: {
     width: "100%",
@@ -111,7 +111,6 @@ const useStyles = makeStyles(() => ({
   },
   userColumn: {
     alignItems: "center",
-    height: 210,
     gap: 8,
     flex: 1,
     minWidth: 80,
