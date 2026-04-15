@@ -61,6 +61,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.borderRadius.md,
     marginBottom: 8,
     minHeight: 64,
+    width: "100%",
+    
   },
   placeNumber: {
     fontSize: fonts.sizes.xl,
@@ -106,6 +108,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     alignItems: "center",
     gap: 4,
+    minWidth: 62,
   },
   currencyText: {
     fontSize: fonts.sizes.xs,

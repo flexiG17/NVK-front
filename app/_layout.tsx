@@ -33,10 +33,7 @@ function InnerLayout() {
       >
         <Stack.Screen name="(auth)/login" />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="leaderboard"
-          options={{ headerShown: true, title: "Лидерборд" }}
-        />
+        <Stack.Screen name="leaderboard" options={{ headerShown: false }} />
       </Stack>
     </>
   );
@@ -60,10 +57,8 @@ export default function RootLayout() {
       <I18nextProvider i18n={i18n}>
         <ThemeProvider>
           <InnerLayout />
-        </ThemeProvider> 
+        </ThemeProvider>
       </I18nextProvider>
     </GestureHandlerRootView>
-    
-    
   );
 }
