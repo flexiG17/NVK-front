@@ -43,7 +43,12 @@ export const RankingColumns = ({ users }: RankingColumnsProps) => {
         <Text style={styles.nameText}>{user.name}</Text>
 
         <View style={styles.amountContainer}>
-          <CurrencyIcon width={14} height={13} color={palette.navyMedium} />
+          <CurrencyIcon
+            width={14}
+            height={13}
+            color={palette.navyMedium}
+            style={{ flexShrink: 0 }}
+          />
           <Text style={styles.amountText}>{user.amount}</Text>
         </View>
       </View>
@@ -95,6 +100,7 @@ const useStyles = makeStyles(() => ({
   container: {
     width: "100%",
     justifyContent: "center",
+    marginBottom: 28,
   },
   rowContainer: {
     width: "100%",
@@ -105,7 +111,6 @@ const useStyles = makeStyles(() => ({
   },
   userColumn: {
     alignItems: "center",
-    height: 210,
     gap: 8,
     flex: 1,
     minWidth: 80,
@@ -147,7 +152,7 @@ const useStyles = makeStyles(() => ({
     flexDirection: "row",
     alignItems: "center",
     gap: 4,
-    width: 56,
+    minWidth: 61,
     backgroundColor: palette.white,
     borderRadius: 10,
     paddingHorizontal: 8,
