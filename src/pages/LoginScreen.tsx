@@ -19,6 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { loginSchema, LoginFormData } from "@/features/auth/loginSchema";
 import { useLocalization } from "@/shared/lib/i18n/useLocalization";
+import { setAuthSessionActive } from "@/shared/lib/authSession";
 import { PrimaryButton } from "@/shared/ui/PrimaryButton";
 
 export default function LoginScreen() {
@@ -38,12 +39,13 @@ export default function LoginScreen() {
     defaultValues: { login: "", password: "" },
   });
 
-  const onSubmit = (data: LoginFormData) => {
+  const onSubmit = async (data: LoginFormData) => {
     const payload = {
       username: data.login,
       password: data.password,
     };
     console.log("Отправка на бэк:", payload);
+    await setAuthSessionActive();
     router.push("/(tabs)");
   };
   const onPressRegister = () => {
