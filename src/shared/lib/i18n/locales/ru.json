@@ -1,7 +1,6 @@
 {
   "welcome": "Добро пожаловать в наше приложение!",
   "title": "Демо приложение",
-  "description": "Демонстрация интернационализации с i18next",
   "button": {
     "changeLanguage": "Сменить язык",
     "save": "Сохранить",
@@ -25,5 +24,26 @@
   "signIn": "Войти",
   "registration": "Регистрация",
   "guest": "Войти как гость",
-  "resetPassword": "Восстановление пароля"
+  "resetPassword": "Восстановление пароля",
+  "back": "назад",
+  "description": "Основное",
+  "photos": "Фото",
+  "route": "Построить маршрут",
+  "navigation": {
+    "office": {
+      "openStatus": "Открыто",
+      "closedStatus": "Закрыто",
+      "name": "Аудитория",
+      "roomDetail": {
+        "P101": "Что значит текущая загруженность и тех оснащение?"
+      }
+    }
+  },
+  "search": {
+    "placeholder": "Поиск по ФИО"
+  },
+  "leaderboard": {
+    "competitionDeadline": "Конкурсный срок",
+    "allTime": "Все время"
+  }
 }

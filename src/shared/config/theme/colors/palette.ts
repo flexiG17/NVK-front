@@ -3,10 +3,15 @@ export const palette = {
   black: "#000000",
 
   navy: "#0B2B6D",
+  navyMedium: "#2F3E90",
   navyDark: "#2F4CA2",
 
   indigo: "#3A3B82",
   indigoLight: "#5C5DB8",
+
+  pink: "#FF0189",
+
+  gray600: "#616161",
 
   dark900: "#121218",
   dark800: "#1E1E2A",

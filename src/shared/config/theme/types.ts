@@ -28,6 +28,7 @@ export interface ThemeColors {
   tabIconActive: string;
   tabIconInactive: string;
   bottomBarShadow: string;
+  pink: string;
   eventCardBg: string;
   thumbPlaceholder: string;
   statusBar: "light" | "dark";
@@ -47,11 +48,11 @@ export interface Theme {
   };
   fonts: {
     family: {
-    regular: string;
-    medium: string;
-    semibold: string;
-    bold: string;
-  };
+      regular: string;
+      medium: string;
+      semibold: string;
+      bold: string;
+    };
     sizes: {
       xs: number;
       sm: number;

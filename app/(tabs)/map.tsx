@@ -1,12 +1,22 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useRef } from 'react';
+import { CustomBottomSheet, CustomBottomSheetRef } from '@/pages/maps/bottomSheet/office/widgets/CustomBottomSheet';
+import { CardScreen } from '@/pages/maps/bottomSheet/office/widgets/CardScreen';
 
 export default function MapScreen() {
+  const sheetRef = useRef<CustomBottomSheetRef>(null);
+
   return (
     <View style={styles.container}>
       <Ionicons name="map-outline" size={64} color="#ccc" />
       <Text style={styles.title}>Карта</Text>
       <Text style={styles.subtitle}>Здесь будет интерактивная карта с объектами</Text>
+    
+      <CustomBottomSheet ref={sheetRef}> 
+        <CardScreen id='1'/>  
+      </CustomBottomSheet>
+      
     </View>
   );
 }
@@ -27,4 +37,8 @@ const styles = StyleSheet.create({
     color: 'gray', 
     marginTop: 5 
   },
+  sheetContent: {
+    padding: 16,
+  },
+
 });
