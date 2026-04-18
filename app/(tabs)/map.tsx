@@ -1,44 +1,43 @@
-import { View, Text, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { View, StyleSheet } from 'react-native';
 import { useRef } from 'react';
-import { CustomBottomSheet, CustomBottomSheetRef } from '@/pages/maps/bottomSheet/office/widgets/CustomBottomSheet';
+import {
+  CustomBottomSheet,
+  CustomBottomSheetRef,
+} from '@/pages/maps/bottomSheet/office/widgets/CustomBottomSheet';
 import { CardScreen } from '@/pages/maps/bottomSheet/office/widgets/CardScreen';
+import IndoorMapWrapper from '@/pages/maps/indoorMap/IndoorMapWrapper';
 
 export default function MapScreen() {
   const sheetRef = useRef<CustomBottomSheetRef>(null);
 
   return (
     <View style={styles.container}>
-      <Ionicons name="map-outline" size={64} color="#ccc" />
-      <Text style={styles.title}>Карта</Text>
-      <Text style={styles.subtitle}>Здесь будет интерактивная карта с объектами</Text>
-    
-      <CustomBottomSheet ref={sheetRef}> 
-        <CardScreen id='1'/>  
+      <IndoorMapWrapper />
+
+      <CustomBottomSheet ref={sheetRef}>
+        <CardScreen id="1" />
       </CustomBottomSheet>
-      
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
+  container: {
+    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center', 
-    backgroundColor: '#fff' 
+    alignItems: 'center',
+    backgroundColor: '#fff',
   },
-  title: { 
-    fontSize: 22, 
-    fontWeight: 'bold', 
-    marginTop: 10 
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginTop: 10,
   },
-  subtitle: { 
-    color: 'gray', 
-    marginTop: 5 
+  subtitle: {
+    color: 'gray',
+    marginTop: 5,
   },
   sheetContent: {
     padding: 16,
   },
-
 });
