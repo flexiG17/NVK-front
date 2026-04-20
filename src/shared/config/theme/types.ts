@@ -25,15 +25,34 @@ export interface ThemeColors {
   pillBorder: string;
   bottomBar: string;
   tabIcon: string;
+  tabIconActive: string;
+  tabIconInactive: string;
+  bottomBarShadow: string;
+  pink: string;
   eventCardBg: string;
   thumbPlaceholder: string;
   statusBar: "light" | "dark";
 }
 
+export interface GradientStop {
+  offset: string;
+  color: string;
+  opacity: string;
+}
+
 export interface Theme {
   dark: boolean;
   colors: ThemeColors;
+  gradients: {
+    spinner: GradientStop[];
+  };
   fonts: {
+    family: {
+      regular: string;
+      medium: string;
+      semibold: string;
+      bold: string;
+    };
     sizes: {
       xs: number;
       sm: number;

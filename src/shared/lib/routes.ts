@@ -17,4 +17,11 @@ export const ROUTES = {
   }
 } as const;
 
+export const TAB_ROUTE_PATHS = {
+  index: ROUTES.tabs.root,
+  map: ROUTES.tabs.map,
+  chat: ROUTES.tabs.chat,
+  profile: ROUTES.tabs.profile,
+} as const;
+
 export type AppRoutes = typeof ROUTES;

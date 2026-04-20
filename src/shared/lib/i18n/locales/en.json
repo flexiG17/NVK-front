@@ -1,7 +1,6 @@
 {
   "welcome": "Welcome to our app!",
   "title": "Demo App",
-  "description": "Internationalization demo with i18next",
   "button": {
     "changeLanguage": "Change Language",
     "save": "Save",
@@ -18,5 +17,33 @@
       "one": "You have {{count}} item",
       "other": "You have {{count}} items"
     }
+  },
+  "welcomeNVK": "Welcome \nto НВК LIFE!",
+  "login": "Login (Email)*",
+  "password": "Password *",
+  "signIn": "Sign in",
+  "registration": "Registration",
+  "guest": "Continue as Guest",
+  "resetPassword": "Forgot password?",
+  "back": "back",
+  "description": "Description",
+  "photos": "Photos",
+  "route": "Build a route",
+  "navigation": {
+    "office": {
+      "openStatus": "Open",
+      "closedStatus": "Closed",
+      "name": "Auditorium",
+      "roomDetail": {
+        "P101": "What does the current workload and technical equipment mean?"
+      }
+    }
+  },
+  "search": {
+    "placeholder": "Search by name"
+  },
+  "leaderboard": {
+    "competitionDeadline": "Competition deadline",
+    "allTime": "All time"
   }
 }

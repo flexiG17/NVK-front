@@ -1,32 +1,44 @@
-import { Tabs } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
-import { AuthGuard } from '@/shared/AuthGuard';
+import { AuthGuard } from "@/features/auth/AuthGuard";
+import {
+  FLOATING_TAB_BAR_HEIGHT,
+  FloatingTabBar,
+} from "@/widgets/navigation/FloatingTabBar";
+import type { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+import { Tabs } from "expo-router";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+const TAB_BOTTOM_GAP = 20;
 
 export default function TabsLayout() {
+  const insets = useSafeAreaInsets();
+  const contentBottomPad =
+    FLOATING_TAB_BAR_HEIGHT + TAB_BOTTOM_GAP + insets.bottom;
+
   return (
     <AuthGuard>
-    <Tabs screenOptions={{ tabBarActiveTintColor: '#007AFF' }}>
-      <Tabs.Screen 
-        name="index" 
-        options={{ title: 'Главная', tabBarIcon: ({ color }) => <Ionicons name="home" size={24} color={color} /> }} 
-      />
-      <Tabs.Screen 
-        name="map" 
-        options={{ title: 'Карта', tabBarIcon: ({ color }) => <Ionicons name="map" size={24} color={color} /> }} 
-      />
-      <Tabs.Screen 
-        name="chat" 
-        options={{ title: 'Чат', tabBarIcon: ({ color }) => <Ionicons name="chatbubbles" size={24} color={color} /> }} 
-      />
-      <Tabs.Screen 
-        name="events" 
-        options={{ title: 'События', tabBarIcon: ({ color }) => <Ionicons name="calendar" size={24} color={color} /> }} 
-      />
-      <Tabs.Screen 
-        name="profile" 
-        options={{ title: 'Профиль', tabBarIcon: ({ color }) => <Ionicons name="person" size={24} color={color} /> }} 
-      />
-    </Tabs>
+      <Tabs
+        tabBar={(props: BottomTabBarProps) => <FloatingTabBar {...props} />}
+        screenOptions={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          sceneStyle: {
+            paddingBottom: contentBottomPad,
+            backgroundColor: "#fff",
+          },
+        }}
+      >
+        <Tabs.Screen name="index" options={{ title: "Главная" }} />
+        <Tabs.Screen name="map" options={{ title: "Карта" }} />
+        <Tabs.Screen name="chat" options={{ title: "Чат" }} />
+        <Tabs.Screen
+          name="events"
+          options={{
+            title: "События",
+            href: null,
+          }}
+        />
+        <Tabs.Screen name="profile" options={{ title: "Профиль" }} />
+      </Tabs>
     </AuthGuard>
   );
 }
