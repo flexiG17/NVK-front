@@ -10,7 +10,7 @@ import Positions from './ui/Positions';
 import ObjectItemDetailsDialog from './ui/ObjectItemDetailsDialog';
 import { MapSvg } from './ui/MapSvg';
 import Svg from 'react-native-svg';
-import MapControls from './ui/MapControls';
+import MapNavigationControls from "./ui/MapNavigationControls";
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -25,6 +25,8 @@ const IndoorMapWrapper: React.FC = () => {
 
   const panZoomRef = useRef<PanZoomHandle>(null);
   const [isEditMode, setIsEditMode] = useState(false);
+  const [currentFloor, setCurrentFloor] = useState(1);
+  const [currentScale, setCurrentScale] = useState(1);
   const objects: ObjectItem[] = db.objects;
   const positionRadius = 10;
 
@@ -39,10 +41,6 @@ const IndoorMapWrapper: React.FC = () => {
         Alert.alert('Error', 'Object not found');
       }
     }
-  };
-
-  const toggleEditMode = () => {
-    setIsEditMode((prev) => !prev);
   };
 
   const handlePositionClick = (id: string) => {
@@ -92,12 +90,18 @@ const IndoorMapWrapper: React.FC = () => {
           </Svg>
         </View>
       </PanZoom>
-      <MapControls
+      <MapNavigationControls
         onZoomIn={() => panZoomRef.current?.zoomIn()}
         onZoomOut={() => panZoomRef.current?.zoomOut()}
-        onReset={() => panZoomRef.current?.reset()}
-        isEditMode={isEditMode}
-        onToggleEditMode={toggleEditMode}
+        onLocate={() => {
+          panZoomRef.current?.reset();
+          setCurrentScale(1);
+        }}
+        scale={{ min: 0.5, max: 3, current: currentScale }}
+        onScaleChange={setCurrentScale}
+        floorList={[1, 2, 3, 4]}
+        currentFloor={currentFloor}
+        onFloorChange={setCurrentFloor}
       />
     </View>
   );
