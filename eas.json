@@ -9,9 +9,7 @@
         "buildType": "apk",
         "gradleCommand": ":app:assembleDebug"
       },
-      "ios": {
-        "buildType": "simulator"
-      }
+      "ios": {}
     },
     "preview": {
       "distribution": "internal",
@@ -23,15 +21,8 @@
     "production": {
       "distribution": "store",
       "android": {
-        "buildType": "aab",
+        "buildType": "app-bundle",
         "gradleCommand": ":app:bundleRelease"
-      }
-    }
-  },
-  "submit": {
-    "production": {
-      "android": {
-        "serviceAccount": "./android-service-account.json"
       }
     }
   }
