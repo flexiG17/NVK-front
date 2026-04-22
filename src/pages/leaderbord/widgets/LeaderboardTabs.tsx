@@ -12,6 +12,7 @@ import { useLocalization } from "@/shared/lib/i18n";
 interface LeaderboardTabsProps {
   leftText?: string;
   rightText?: string;
+  onTabChange?: (tabIndex: number) => void;
 }
 
 const HORIZONTAL_PADDING = 20;
@@ -19,10 +20,11 @@ const HORIZONTAL_PADDING = 20;
 export const LeaderboardTabs = ({
   leftText,
   rightText,
+  onTabChange,
 }: LeaderboardTabsProps) => {
-  const { t } = useLocalization();
   const { width: screenWidth } = useWindowDimensions();
-  const defaultLeftText = leftText || t("leaderboard.contestDeadline");
+  const { t } = useLocalization();
+  const defaultLeftText = leftText || t("leaderboard.competitionDeadline");
   const defaultRightText = rightText || t("leaderboard.allTime");
   const styles = useStyles();
   const [isLeftSelected, setIsLeftSelected] = useState(true);
@@ -40,6 +42,16 @@ export const LeaderboardTabs = ({
     }).start();
   }, [isLeftSelected, slideAnim, slideDistance]);
 
+  const handleLeftPress = () => {
+    setIsLeftSelected(true);
+    onTabChange?.(0);
+  };
+
+  const handleRightPress = () => {
+    setIsLeftSelected(false);
+    onTabChange?.(1);
+  };
+
   return (
     <View style={[styles.container, { flexDirection: "row" }]}>
       <Animated.View
@@ -55,7 +67,7 @@ export const LeaderboardTabs = ({
           },
         ]}
       />
-      <Pressable style={styles.button} onPress={() => setIsLeftSelected(true)}>
+      <Pressable style={styles.button} onPress={handleLeftPress}>
         <Text
           style={[
             styles.text,
@@ -65,7 +77,7 @@ export const LeaderboardTabs = ({
           {defaultLeftText}
         </Text>
       </Pressable>
-      <Pressable style={styles.button} onPress={() => setIsLeftSelected(false)}>
+      <Pressable style={styles.button} onPress={handleRightPress}>
         <Text
           style={[
             styles.text,
@@ -86,8 +98,8 @@ const useStyles = makeStyles((t) => ({
     borderRadius: t.borderRadius.xl,
     overflow: "hidden",
     backgroundColor: t.colors.surface,
-    marginHorizontal: HORIZONTAL_PADDING,
     padding: 4,
+    marginBottom: 17,
   },
   slider: {
     position: "absolute",

@@ -25,6 +25,9 @@ export interface ThemeColors {
   pillBorder: string;
   bottomBar: string;
   tabIcon: string;
+  tabIconActive: string;
+  tabIconInactive: string;
+  bottomBarShadow: string;
   pink: string;
   eventCardBg: string;
   thumbPlaceholder: string;

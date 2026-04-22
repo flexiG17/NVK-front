@@ -19,6 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { loginSchema, LoginFormData } from "@/features/auth/loginSchema";
 import { useLocalization } from "@/shared/lib/i18n/useLocalization";
+import { setAuthSessionActive } from "@/shared/lib/authSession";
 import { PrimaryButton } from "@/shared/ui/PrimaryButton";
 
 export default function LoginScreen() {
@@ -38,12 +39,13 @@ export default function LoginScreen() {
     defaultValues: { login: "", password: "" },
   });
 
-  const onSubmit = (data: LoginFormData) => {
+  const onSubmit = async (data: LoginFormData) => {
     const payload = {
       username: data.login,
       password: data.password,
     };
     console.log("Отправка на бэк:", payload);
+    await setAuthSessionActive();
     router.push("/(tabs)");
   };
   const onPressRegister = () => {
@@ -155,9 +157,9 @@ export default function LoginScreen() {
               )}
             />
 
-            <PrimaryButton 
-              title={t('signIn')} 
-              onPress={handleSubmit(onSubmit)} 
+            <PrimaryButton
+              title={t("signIn")}
+              onPress={handleSubmit(onSubmit)}
               disabled={!isValid}
             />
 
@@ -258,7 +260,7 @@ const useStyles = makeStyles((t) => ({
     paddingHorizontal: 16,
     color: t.colors.inputText,
     // backgroundColor: t.colors.inputBackground,
-    backgroundColor: "#FF0189",
+    backgroundColor: t.colors.pink,
     fontFamily: t.fonts.family.regular,
     fontSize: t.fonts.sizes.md,
   },
@@ -274,7 +276,7 @@ const useStyles = makeStyles((t) => ({
     paddingLeft: 16,
     paddingRight: 10,
     // backgroundColor: t.colors.inputBackground
-    backgroundColor: "#FF0189",
+    backgroundColor: t.colors.pink,
   },
   passwordInput: {
     flex: 1,

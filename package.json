@@ -8,11 +8,21 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint",
-    "build:apk": "eas build --platform android --profile development --local",
-    "build:apk:preview": "eas build --platform android --profile preview --local",
-    "build:apk:clean": "eas build --platform android --profile development --local --clear-cache",
-    "prebuild:android": "expo prebuild --platform android --clean"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\""
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
@@ -53,8 +63,19 @@
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
-    "eslint": "^9.25.0",
+    "@typescript-eslint/eslint-plugin": "^8.58.1",
+    "@typescript-eslint/parser": "^8.58.1",
+    "eslint": "^9.39.4",
     "eslint-config-expo": "~10.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-native": "^5.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.1",
+    "react-native-svg-transformer": "^1.5.3",
     "typescript": "~5.9.2"
   },
   "private": true

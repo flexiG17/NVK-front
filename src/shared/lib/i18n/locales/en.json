@@ -38,13 +38,12 @@
         "P101": "What does the current workload and technical equipment mean?"
       }
     }
-  }
-}
-  "leaderboard": {
-    "contestDeadline": "Contest Deadline",
-    "allTime": "All Time"
   },
   "search": {
     "placeholder": "Search by name"
+  },
+  "leaderboard": {
+    "competitionDeadline": "Competition deadline",
+    "allTime": "All time"
   }
 }
