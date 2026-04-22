@@ -37,7 +37,10 @@ eas login
 Собрать APK:
 
 ```bash
-npm run build:apk
+#для сборки в облаке
+eas build -p android --profile preview
+#локальная сборка нужны Android Studio + SDK + Java
+eas build -p android --profile preview --local
 ```
 
 ## Архитектура проекта (FSD)
