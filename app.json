@@ -4,7 +4,7 @@
     "slug": "nvk-front",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/react-logo.png",
+    "icon": "./src/assets/images/react-logo.png",
     "scheme": "nvkfront",
     "userInterfaceStyle": "automatic",
     "ios": {
@@ -13,22 +13,22 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/react-logo.png",
-        "backgroundImage": "./assets/images/react-logo.png",
-        "monochromeImage": "./assets/images/react-logo.png"
+        "foregroundImage": "./src/assets/images/react-logo.png",
+        "backgroundImage": "./src/assets/images/react-logo.png",
+        "monochromeImage": "./src/assets/images/react-logo.png"
       },
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/react-logo.png"
+      "favicon": "./src/assets/images/react-logo.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/react-logo.png",
+          "image": "./src/assets/images/react-logo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",

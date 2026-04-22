@@ -25,6 +25,24 @@
    Нажмите i для запуска симулятора iOS (только macOS).
    Или отсканируйте QR-код через приложение Expo Go на телефоне.
 
+## Сборка APK
+
+Первый раз:
+
+```bash
+npm install -g eas-cli
+eas login
+```
+
+Собрать APK:
+
+```bash
+#для сборки в облаке
+eas build -p android --profile preview
+#локальная сборка нужны Android Studio + SDK + Java
+eas build -p android --profile preview --local
+```
+
 ## Архитектура проекта (FSD)
 
 ```
