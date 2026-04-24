@@ -1,5 +1,5 @@
 import { View, Text, Image } from 'react-native';
-import { makeStyles, useTheme } from '@/lib/theme';
+import { makeStyles } from '@/lib/theme';
 import { fonts } from '@/shared/config/theme/fonts';
 import { palette } from '@/shared/config/theme/colors/palette';
 import { useLocalization } from '@/shared/lib/i18n';
@@ -21,7 +21,6 @@ interface ProfileHeaderProps {
 
 export const ProfileHeader: React.FC<ProfileHeaderProps> = ({ userName, level, currentPoints, maxPoints, userImage }) => {
   const styles = useStyles();
-  const { theme } = useTheme();
   const { t } = useLocalization();
   const progressPercentage = (currentPoints / maxPoints) * 100;
 
@@ -33,7 +32,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({ userName, level, c
           <Image source={{ uri: userImage }} style={styles.avatar} />
         ) : (
           <View style={[styles.avatar, styles.avatarPlaceholder]}>
-            <AvatarIcon width={AVATAR_SIZE} height={AVATAR_SIZE} color={theme.colors.accent} />
+            <AvatarIcon width={AVATAR_SIZE} height={AVATAR_SIZE} color={palette.gray600} />
           </View>
         )}
       </View>
@@ -83,12 +82,12 @@ const useStyles = makeStyles(theme => ({
     width: AVATAR_SIZE,
     height: AVATAR_SIZE,
     borderRadius: AVATAR_BORDER_RADIUS,
-    backgroundColor: theme.colors.accent,
+    backgroundColor: palette.gray600,
     justifyContent: 'center',
     alignItems: 'center',
   },
   avatarPlaceholder: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: palette.gray600,
   },
   greeting: {
     fontSize: 28,
