@@ -1,4 +1,4 @@
-import Map from '@/assets/images/mall-floor-plan.svg';
+import Map from '@/assets/images/campus-floor-plan.svg';
 
 type Props = {
   width?: string | number;

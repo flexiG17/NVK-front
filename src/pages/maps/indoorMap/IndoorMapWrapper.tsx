@@ -13,6 +13,7 @@ import Svg from 'react-native-svg';
 import MapControls from './ui/MapControls';
 
 const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 const IndoorMapWrapper: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -30,7 +31,7 @@ const IndoorMapWrapper: React.FC = () => {
 
   const handleObjectClick = (id: string) => {
     if (!isEditMode) {
-      const selected = objects.find((obj) => obj.name === id);
+      const selected = objects.find(obj => obj.name === id);
 
       if (selected) {
         setObject(selected);
@@ -42,7 +43,7 @@ const IndoorMapWrapper: React.FC = () => {
   };
 
   const toggleEditMode = () => {
-    setIsEditMode((prev) => !prev);
+    setIsEditMode(prev => !prev);
   };
 
   const handlePositionClick = (id: string) => {
@@ -76,10 +77,11 @@ const IndoorMapWrapper: React.FC = () => {
       <PanZoom ref={panZoomRef}>
         <View style={{ width: '100%', height: '100%' }}>
           <Svg
-            width={1461.95 / (1461.95 / screenWidth)} // TODO костыльно задается положение на экране
-            height={1149.136 / 3} // TODO костыль, потом переделать
-            viewBox="0 0 1461.95 1149.136">
-            <MapSvg width={1461.95} height={1149.136} />
+            width={screenWidth} // TODO костыльно задается положение на экране
+            height={screenHeight} // TODO костыль, потом переделать
+            viewBox="0 0 360 426"
+          >
+            <MapSvg width={360} height={426} />
             <Objects onPress={handleObjectClick} disabled={isEditMode} />
 
             <Paths path={navigation.path} />
