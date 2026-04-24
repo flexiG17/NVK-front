@@ -1,18 +1,14 @@
-import { AuthGuard } from "@/features/auth/AuthGuard";
-import {
-  FLOATING_TAB_BAR_HEIGHT,
-  FloatingTabBar,
-} from "@/widgets/navigation/FloatingTabBar";
-import type { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { Tabs } from "expo-router";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { AuthGuard } from '@/features/auth/AuthGuard';
+import { FLOATING_TAB_BAR_HEIGHT, FloatingTabBar } from '@/widgets/navigation/FloatingTabBar';
+import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { Tabs } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const TAB_BOTTOM_GAP = 20;
 
 export default function TabsLayout() {
   const insets = useSafeAreaInsets();
-  const contentBottomPad =
-    FLOATING_TAB_BAR_HEIGHT + TAB_BOTTOM_GAP + insets.bottom;
+  const contentBottomPad = FLOATING_TAB_BAR_HEIGHT + TAB_BOTTOM_GAP + insets.bottom;
 
   return (
     <AuthGuard>
@@ -23,21 +19,20 @@ export default function TabsLayout() {
           tabBarShowLabel: false,
           sceneStyle: {
             paddingBottom: contentBottomPad,
-            backgroundColor: "#fff",
           },
         }}
       >
-        <Tabs.Screen name="index" options={{ title: "Главная" }} />
-        <Tabs.Screen name="map" options={{ title: "Карта" }} />
-        <Tabs.Screen name="chat" options={{ title: "Чат" }} />
+        <Tabs.Screen name="index" options={{ title: 'Главная' }} />
+        <Tabs.Screen name="map" options={{ title: 'Карта' }} />
+        <Tabs.Screen name="chat" options={{ title: 'Чат' }} />
         <Tabs.Screen
           name="events"
           options={{
-            title: "События",
+            title: 'События',
             href: null,
           }}
         />
-        <Tabs.Screen name="profile" options={{ title: "Профиль" }} />
+        <Tabs.Screen name="profile" options={{ title: 'Профиль' }} />
       </Tabs>
     </AuthGuard>
   );

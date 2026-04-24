@@ -45,5 +45,18 @@
   "leaderboard": {
     "competitionDeadline": "Competition deadline",
     "allTime": "All time"
+  },
+  "profile": {
+    "activities": "My activities",
+    "greeting": "Hello",
+    "level": "Level",
+    "points": "points",
+    "labels": {
+      "fio": "Full Name",
+      "group": "Group",
+      "institute": "Institute",
+      "role": "Role",
+      "organization": "Organization"
+    }
   }
 }
