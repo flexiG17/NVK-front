@@ -11,13 +11,7 @@ interface ControlsProps {
   onToggleEditMode: () => void;
 }
 
-const MapControls: React.FC<ControlsProps> = ({
-  onZoomIn,
-  onZoomOut,
-  onReset,
-  isEditMode,
-  onToggleEditMode,
-}) => {
+const MapControls: React.FC<ControlsProps> = ({ onZoomIn, onZoomOut, onReset, isEditMode, onToggleEditMode }) => {
   return (
     <View style={styles.container}>
       <Pressable style={styles.button} onPress={onZoomIn}>
@@ -33,9 +27,7 @@ const MapControls: React.FC<ControlsProps> = ({
       </Pressable>
 
       {/* EDIT MODE TOGGLE */}
-      <Pressable
-        style={[styles.button, isEditMode && styles.activeButton, styles.last]}
-        onPress={onToggleEditMode}>
+      <Pressable style={[styles.button, isEditMode && styles.activeButton, styles.last]} onPress={onToggleEditMode}>
         <Ionicons name={isEditMode ? 'checkmark-circle' : 'pencil'} size={22} color="#000" />
       </Pressable>
     </View>
@@ -48,6 +40,7 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     right: 16,
+    top: 40,
     flexDirection: 'row',
     backgroundColor: 'white',
     borderRadius: 10,
