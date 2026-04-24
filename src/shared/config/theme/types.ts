@@ -1,4 +1,4 @@
-export type ThemeMode = "light" | "dark" | "system";
+export type ThemeMode = 'light' | 'dark' | 'system';
 
 export interface ThemeColors {
   background: string;
@@ -31,7 +31,8 @@ export interface ThemeColors {
   pink: string;
   eventCardBg: string;
   thumbPlaceholder: string;
-  statusBar: "light" | "dark";
+  greetingText: string;
+  statusBar: 'light' | 'dark';
 }
 
 export interface GradientStop {

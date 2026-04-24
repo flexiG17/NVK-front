@@ -45,5 +45,18 @@
   "leaderboard": {
     "competitionDeadline": "Конкурсный срок",
     "allTime": "Все время"
+  },
+  "profile": {
+    "activities": "Мои активности",
+    "greeting": "Привет",
+    "level": "Уровень",
+    "points": "баллов",
+    "labels": {
+      "fio": "ФИО",
+      "group": "Группа",
+      "institute": "Институт",
+      "role": "Роль",
+      "organization": "Организация"
+    }
   }
 }
